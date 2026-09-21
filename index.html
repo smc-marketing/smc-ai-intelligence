@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMC AI Intelligence Report</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F1EFE8; color: #2C2C2A; min-height: 100vh; }
+header { background: #fff; border-bottom: 1px solid #D3D1C7; padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+header h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+header p { font-size: 12px; color: #888780; margin-top: 2px; }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+.badge-visby { background: #EDE9F6; color: #4A2D8F; }
+.badge-moz { background: #E6F1FB; color: #185FA5; }
+.badge-ga4 { background: #E1F5EE; color: #0F6E56; }
+main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #888780; margin-bottom: 0.75rem; }
+.source-tag { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+.src-visby { background: #EDE9F6; color: #4A2D8F; }
+.src-moz { background: #E6F1FB; color: #185FA5; }
+.src-ga4 { background: #E1F5EE; color: #0F6E56; }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 12px; margin-bottom: 2rem; }
+.card { background: #fff; border-radius: 10px; border: 1px solid #D3D1C7; padding: 1.1rem 1.25rem; }
+.card-label { font-size: 11px; color: #888780; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.card-val { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
+.card-sub { font-size: 12px; color: #888780; margin-top: 5px; }
+.delta-pos { font-size: 12px; color: #0F6E56; font-weight: 500; margin-top: 5px; }
+.delta-neg { font-size: 12px; color: #A32D2D; font-weight: 500; margin-top: 5px; }
+.delta-flat { font-size: 12px; color: #888780; margin-top: 5px; }
+.pill-red { font-size: 11px; color: #A32D2D; background: #FCEBEB; display: inline-block; padding: 2px 8px; border-radius: 20px; margin-top: 8px; }
+.pill-amber { font-size: 11px; color: #854F0B; background: #FAEEDA; display: inline-block; padding: 2px 8px; border-radius: 20px; margin-top: 8px; }
+.pill-green { font-size: 11px; color: #0F6E56; background: #E1F5EE; display: inline-block; padding: 2px 8px; border-radius: 20px; margin-top: 8px; }
+.chart-card { background: #fff; border-radius: 10px; border: 1px solid #D3D1C7; padding: 1.5rem; }
+.chart-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
+.chart-title { font-size: 14px; font-weight: 600; color: #2C2C2A; }
+.chart-sub { font-size: 12px; color: #888780; margin-top: 2px; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; }
+.li { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #5F5E5A; }
+.ld { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.chart-wrap { position: relative; width: 100%; height: 260px; }
+.chart-block { margin-bottom: 1.5rem; }
+.chart-block .chart-card { border-radius: 10px 10px 0 0; border-bottom: none; }
+.actions-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; margin-bottom: 1.5rem; }
+.action-box { padding: 1rem 1.25rem; border: 1px solid #D3D1C7; border-top: none; }
+.action-box:first-child { border-radius: 0 0 0 10px; border-right: none; }
+.action-box:last-child { border-radius: 0 0 10px 0; }
+.action-box:only-child { border-radius: 0 0 10px 10px; border-right: 1px solid #D3D1C7; }
+.action-box.blue { background: #E6F1FB; }
+.action-box.red { background: #FCEBEB; }
+.action-box.amber { background: #FAEEDA; }
+.action-box.green { background: #E1F5EE; }
+.action-box.purple { background: #EDE9F6; }
+.action-box .al { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+.action-box.blue .al { color: #185FA5; }
+.action-box.red .al { color: #A32D2D; }
+.action-box.amber .al { color: #854F0B; }
+.action-box.green .al { color: #0F6E56; }
+.action-box.purple .al { color: #4A2D8F; }
+.action-box .ab { font-size: 12px; line-height: 1.55; }
+.action-box.blue .ab { color: #1a4f8a; }
+.action-box.red .ab { color: #8b2222; }
+.action-box.amber .ab { color: #6b3f08; }
+.action-box.green .ab { color: #0a4d3a; }
+.action-box.purple .ab { color: #3a2070; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #888780; padding: 0.6rem 1rem; border-bottom: 1px solid #D3D1C7; background: #F1EFE8; }
+td { padding: 0.7rem 1rem; border-bottom: 1px solid #F1EFE8; color: #444441; vertical-align: middle; }
+.pct-high { color: #0F6E56; font-weight: 500; }
+.pct-mid { color: #854F0B; font-weight: 500; }
+.pct-low { color: #A32D2D; font-weight: 500; }
+.pct-zero { color: #D3D1C7; }
+.rank-1 { color: #0F6E56; font-weight: 600; }
+.rank-2 { color: #854F0B; font-weight: 500; }
+.sent-pos { font-size: 11px; background: #E1F5EE; color: #0F6E56; padding: 2px 8px; border-radius: 20px; display: inline-block; }
+.sent-mix { font-size: 11px; background: #FAEEDA; color: #854F0B; padding: 2px 8px; border-radius: 20px; display: inline-block; }
+.alert-bar { background: #FCEBEB; border-left: 3px solid #A32D2D; padding: 0.7rem 1rem; font-size: 12px; color: #A32D2D; margin-bottom: 1.25rem; line-height: 1.5; border-radius: 0 6px 6px 0; }
+.good-bar { background: #E1F5EE; border-left: 3px solid #1baf7a; padding: 0.7rem 1rem; font-size: 12px; color: #0F6E56; margin-bottom: 1.25rem; line-height: 1.5; border-radius: 0 6px 6px 0; }
+.note-bar { background: #FAEEDA; border-left: 3px solid #eda100; padding: 0.7rem 1rem; font-size: 12px; color: #854F0B; margin-bottom: 1.25rem; line-height: 1.5; border-radius: 0 6px 6px 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.score-ring-wrap { display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; }
+.score-ring { position: relative; width: 80px; height: 80px; margin-bottom: 6px; }
+.score-ring canvas { position: absolute; top:0; left:0; }
+.score-num { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 22px; font-weight: 700; }
+.score-green { color: #0F6E56; }
+.score-amber { color: #854F0B; }
+.score-red { color: #A32D2D; }
+.score-label { font-size: 11px; color: #888780; text-align: center; }
+.insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 2rem; }
+.insight-card { background: #fff; border-radius: 10px; border: 1px solid #D3D1C7; padding: 1.1rem 1.25rem; }
+.insight-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
+.insight-body { font-size: 13px; color: #2C2C2A; line-height: 1.5; }
+footer { text-align: center; font-size: 11px; color: #888780; padding: 2rem 1rem; border-top: 1px solid #D3D1C7; margin-top: 2rem; }
+@media (max-width: 680px) { header { padding: 1rem; } main { padding: 1rem; } .two-col { grid-template-columns: 1fr; } .actions-row { grid-template-columns: 1fr; } .action-box:first-child { border-radius: 0; border-right: 1px solid #D3D1C7; } .action-box:last-child { border-radius: 0 0 10px 10px; } }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>SMC AI Intelligence Report</h1>
+    <p>smcsc.edu &middot; Week of Sep 21, 2026 &middot; Sources: Visby.ai, Moz Pro, GA4</p>
+  </div>
+  <div class="badges">
+    <span class="badge badge-visby">Visby.ai</span>
+    <span class="badge badge-moz">Moz Pro</span>
+    <span class="badge badge-ga4">GA4</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="good-bar"><strong>AI visitors convert at 2.3x the rate of organic search.</strong> GA4 AI Assistant shows a 7.58% key event rate vs 3.26% for organic search. 66 sessions this period — small volume but the highest-quality traffic channel on the site. Worth every optimization effort.</div>
+
+  <div class="alert-bar"><strong>ChatGPT citation count critically low (11 total) vs Perplexity (650).</strong> Moz shows ChatGPT citing smcsc.edu only 11 times across all tracked prompts — nearly zero. Perplexity cites the site 650 times. This explains the GA4 traffic split and confirms ChatGPT content optimization is the top priority.</div>
+
+  <!-- Summary scorecard -->
+  <p class="section-label">AI visibility scorecard &mdash; Sep 21, 2026</p>
+  <div class="metrics-grid" style="margin-bottom:2rem;">
+    <div class="card">
+      <div class="card-label">Mention rate &mdash; Gemini <span class="source-tag src-moz">Moz</span></div>
+      <div class="card-val">56.8%</div>
+      <div class="delta-pos">Ranks 1st</div>
+      <div class="pill-green">Best engine</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Mention rate &mdash; Google AI <span class="source-tag src-moz">Moz</span></div>
+      <div class="card-val">47.3%</div>
+      <div class="delta-pos">Ranks 1st</div>
+      <div class="pill-green">Above SCC</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Mention rate &mdash; ChatGPT <span class="source-tag src-moz">Moz</span></div>
+      <div class="card-val">44.6%</div>
+      <div class="delta-flat">Ranks 2nd</div>
+      <div class="pill-amber">SCC at 45.9%</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Mention rate &mdash; Perplexity <span class="source-tag src-moz">Moz</span></div>
+      <div class="card-val">41.5%</div>
+      <div class="delta-pos">Ranks 1st</div>
+      <div class="pill-green">Brand visible</div>
+    </div>
+    <div class="card">
+      <div class="card-label">AI sessions <span class="source-tag src-ga4">GA4</span></div>
+      <div class="card-val">66</div>
+      <div class="delta-flat">Aug 22–Sep 20</div>
+      <div class="pill-amber">+94% ChatGPT</div>
+    </div>
+    <div class="card">
+      <div class="card-label">AI key event rate <span class="source-tag src-ga4">GA4</span></div>
+      <div class="card-val">7.58%</div>
+      <div class="delta-pos">vs 3.26% organic</div>
+      <div class="pill-green">2.3x organic</div>
+    </div>
+    <div class="card">
+      <div class="card-label">GEO score <span class="source-tag src-visby">Visby</span></div>
+      <div class="card-val">75</div>
+      <div class="card-sub">9 pending tasks</div>
+      <div class="pill-amber">Improvable</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Page speed <span class="source-tag src-visby">Visby</span></div>
+      <div class="card-val">49</div>
+      <div class="card-sub">7 pending tasks</div>
+      <div class="pill-red">Priority fix</div>
+    </div>
+  </div>
+
+  <!-- Mention rate by engine -->
+  <div class="chart-block">
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Brand mention rate by AI engine <span class="source-tag src-moz">Moz</span></div>
+          <div class="chart-sub">% of tracked prompt responses where SMC is mentioned &mdash; vs competitors</div>
+        </div>
+        <div class="legend">
+          <div class="li"><span class="ld" style="background:#185FA5;"></span>SMC</div>
+          <div class="li"><span class="ld" style="background:#eda100;"></span>SCC</div>
+          <div class="li"><span class="ld" style="background:#D3D1C7;"></span>Wooford</div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="mentionChart" role="img" aria-label="Grouped bar chart of SMC mention rates by AI engine vs competitors. SMC leads on Gemini (56.8%), Google AI Mode (47.3%), and Perplexity (41.5%). Ranks 2nd on ChatGPT (44.6%) behind SCC (45.9%).">SMC: Gemini 56.8, Google AI 47.3, ChatGPT 44.6, Perplexity 41.5. SCC: around 44-46 across engines. Wooford near 0-2.7.</canvas>
+      </div>
+    </div>
+    <div class="actions-row">
+      <div class="action-box green">
+        <div class="al">SMC leads on 3 of 4 engines</div>
+        <div class="ab">Ranking 1st on Gemini (56.8%), Google AI Mode (47.3%), and Perplexity (41.5%). Wooford is essentially invisible across all engines — the competitive threat is SCC, not Wooford.</div>
+      </div>
+      <div class="action-box amber">
+        <div class="al">ChatGPT — SCC leads by 1.3 points</div>
+        <div class="ab">SCC edges SMC on ChatGPT (45.9% vs 44.6%). Small gap but ChatGPT is the highest-traffic AI engine. Closing this is a content and citation priority for the week.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sentiment by engine -->
+  <div class="chart-block">
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Brand sentiment by AI engine <span class="source-tag src-moz">Moz</span></div>
+          <div class="chart-sub">How favorably AI engines discuss SMC — with top strength and weakness themes</div>
+        </div>
+      </div>
+      <div class="chart-wrap" style="height:200px;">
+        <canvas id="sentChart" role="img" aria-label="Bar chart of SMC brand sentiment scores by engine. Gemini 61 positive. Google AI Mode 60 mixed. ChatGPT 55 mixed. Perplexity 52 mixed.">Gemini 61, Google AI 60, ChatGPT 55, Perplexity 52.</canvas>
+      </div>
+    </div>
+    <div class="actions-row">
+      <div class="action-box green">
+        <div class="al">Gemini — affordability narrative strong</div>
+        <div class="ab">Gemini rates SMC positively on affordability/financial aid (84) and college recognition (83). This is the content narrative working. Reinforce it on other engines.</div>
+      </div>
+      <div class="action-box red">
+        <div class="al">ChatGPT — student housing a weak point</div>
+        <div class="ab">ChatGPT flags student housing issues (score: 25) as a negative theme. Online course challenges (25) also flagged by Google AI Mode. These need content attention.</div>
+      </div>
+      <div class="action-box blue">
+        <div class="al">Perplexity — online success rates positive</div>
+        <div class="ab">Perplexity rates online course success rates at 95 — the highest single theme score across all engines. Use this as a content asset to improve ChatGPT and Google AI Mode scores.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GA4 AI traffic quality -->
+  <div class="chart-block">
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">AI vs organic traffic quality <span class="source-tag src-ga4">GA4</span></div>
+          <div class="chart-sub">Key event rate and engagement comparison &mdash; Aug 22–Sep 20, 2026</div>
+        </div>
+        <div class="legend">
+          <div class="li"><span class="ld" style="background:#4A2D8F;"></span>AI Assistant</div>
+          <div class="li"><span class="ld" style="background:#2a78d6;"></span>Organic Search</div>
+          <div class="li"><span class="ld" style="background:#D3D1C7;"></span>Site avg</div>
+        </div>
+      </div>
+      <div class="chart-wrap" style="height:200px;">
+        <canvas id="qaChart" role="img" aria-label="Grouped bar chart comparing AI Assistant vs organic search on key event rate and engagement rate. AI: 7.58% key events, 69.7% engagement. Organic: 3.26% key events, 55.56% engagement.">AI Assistant: key event rate 7.58%, engagement 69.7%. Organic Search: 3.26%, 55.56%. Site average: 0.31%, 84.22%.</canvas>
+      </div>
+    </div>
+    <div class="actions-row">
+      <div class="action-box purple">
+        <div class="al">AI traffic converts 2.3x better</div>
+        <div class="ab">7.58% key event rate vs 3.26% organic. Engagement rate 69.7% vs 55.56% organic. Average time on site 1m 04s vs 55s organic. Every optimization that increases AI visibility also improves the quality of traffic arriving on site.</div>
+      </div>
+      <div class="action-box amber">
+        <div class="al">Volume still small — 66 sessions</div>
+        <div class="ab">GA4 captures only sessions with a clean referrer header. Moz estimates 35–70% of AI visits arrive as "Direct" with no referrer. True AI traffic volume is likely 150–300+ sessions this period.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Citations by engine -->
+  <p class="section-label">Citation volume by AI engine <span class="source-tag src-moz">Moz</span></p>
+  <div style="background:#fff;border-radius:10px;border:1px solid #D3D1C7;overflow:hidden;margin-bottom:1.5rem;">
+    <table>
+      <thead>
+        <tr>
+          <th>Engine</th>
+          <th>Total citations</th>
+          <th>Unique pages cited</th>
+          <th>Domains</th>
+          <th>SMC brand visibility</th>
+          <th>Avg DA of cited domains</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:500;">Perplexity</td>
+          <td class="pct-high">650</td>
+          <td>437</td>
+          <td>182</td>
+          <td class="pct-mid">41.5%</td>
+          <td>52</td>
+        </tr>
+        <tr>
+          <td style="font-weight:500;">Google AI Mode</td>
+          <td class="pct-mid">327</td>
+          <td>153</td>
+          <td>74</td>
+          <td class="pct-mid">47.3%</td>
+          <td>59</td>
+        </tr>
+        <tr>
+          <td style="font-weight:500;">ChatGPT</td>
+          <td class="pct-low">11</td>
+          <td>9</td>
+          <td>5</td>
+          <td class="pct-mid">44.6%</td>
+          <td>65</td>
+        </tr>
+        <tr>
+          <td style="font-weight:500;">Gemini</td>
+          <td class="pct-zero">0</td>
+          <td>0</td>
+          <td>0</td>
+          <td class="pct-high">56.8%</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note-bar"><strong>Gemini anomaly:</strong> Gemini shows 56.8% mention rate (highest of any engine) but 0 citations in Moz. Gemini uses a different citation model — it mentions brands without always citing a specific source URL. The mention rate is still real and meaningful, but the citation infrastructure that drives Perplexity and Google AI Mode traffic doesn't apply to Gemini the same way.</div>
+
+  <!-- Sentiment themes summary -->
+  <p class="section-label">Sentiment themes across all engines <span class="source-tag src-moz">Moz</span></p>
+  <div style="background:#fff;border-radius:10px;border:1px solid #D3D1C7;overflow:hidden;margin-bottom:1.5rem;">
+    <table>
+      <thead>
+        <tr>
+          <th>Engine</th>
+          <th>Sentiment score</th>
+          <th>Label</th>
+          <th>Strength (score)</th>
+          <th>Weakness (score)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:500;">Gemini</td>
+          <td><strong>61</strong></td>
+          <td><span class="sent-pos">Positive</span></td>
+          <td>Affordability/financial aid (84)</td>
+          <td>College recognition (83) — both positive</td>
+        </tr>
+        <tr>
+          <td style="font-weight:500;">Google AI Mode</td>
+          <td><strong>60</strong></td>
+          <td><span class="sent-mix">Mixed</span></td>
+          <td>Academic programs (87)</td>
+          <td>Online course challenges (25)</td>
+        </tr>
+        <tr>
+          <td style="font-weight:500;">ChatGPT</td>
+          <td><strong>55</strong></td>
+          <td><span class="sent-mix">Mixed</span></td>
+          <td>Transfer student resources (85)</td>
+          <td>Student housing issues (25)</td>
+        </tr>
+        <tr>
+          <td style="font-weight:500;">Perplexity</td>
+          <td><strong>52</strong></td>
+          <td><span class="sent-mix">Mixed</span></td>
+          <td>Online course success rates (95)</td>
+          <td>Community recognition (75) — both positive</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Visby scores -->
+  <p class="section-label">Visby.ai technical scores &mdash; smcsc.edu</p>
+  <div style="background:#fff;border-radius:10px;border:1px solid #D3D1C7;padding:1.5rem;margin-bottom:1.5rem;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;">
+      <div class="score-ring-wrap">
+        <div class="score-label" style="margin-bottom:8px;">SEO Score</div>
+        <div class="score-ring"><canvas id="r1" width="80" height="80"></canvas><div class="score-num score-green">88</div></div>
+        <div class="score-label">9 pending tasks</div>
+      </div>
+      <div class="score-ring-wrap">
+        <div class="score-label" style="margin-bottom:8px;">GEO Score</div>
+        <div class="score-ring"><canvas id="r2" width="80" height="80"></canvas><div class="score-num score-amber">75</div></div>
+        <div class="score-label">9 pending tasks</div>
+      </div>
+      <div class="score-ring-wrap">
+        <div class="score-label" style="margin-bottom:8px;">Page Speed</div>
+        <div class="score-ring"><canvas id="r3" width="80" height="80"></canvas><div class="score-num score-red">49</div></div>
+        <div class="score-label">7 pending tasks ⚠️</div>
+      </div>
+      <div class="score-ring-wrap">
+        <div class="score-label" style="margin-bottom:8px;">Review Score</div>
+        <div class="score-ring"><canvas id="r4" width="80" height="80"></canvas><div class="score-num score-amber">65</div></div>
+        <div class="score-label">4 pending tasks</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weekly priorities -->
+  <p class="section-label">Weekly action priorities</p>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-label" style="color:#A32D2D;">🔴 Critical — ChatGPT citations</div>
+      <div class="insight-body">Only 11 citations vs 650 for Perplexity. Add structured data, FAQ schema, and richer program page content. ChatGPT needs citable anchor text to surface SMC in responses.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-label" style="color:#A32D2D;">🔴 Critical — Page speed (49)</div>
+      <div class="insight-body">Lowest score of all metrics with 7 pending tasks. Page speed affects both traditional SEO rankings and AI crawlability. Friday SEO task list priority.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-label" style="color:#854F0B;">🟡 Priority — ChatGPT rank 2 vs SCC</div>
+      <div class="insight-body">SCC edges SMC 45.9% vs 44.6% on ChatGPT mention rate. SMC leads on all other engines. A small content push on Spartanburg online degree content could flip this.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-label" style="color:#854F0B;">🟡 Priority — Online course challenges narrative</div>
+      <div class="insight-body">Google AI Mode and ChatGPT both flag online course challenges as a negative theme (score: 25). Student success stories and online program outcome data would counter this directly.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-label" style="color:#0F6E56;">🟢 Capitalize — Perplexity online success narrative</div>
+      <div class="insight-body">Perplexity rates SMC's online course success rates at 95 — the highest theme score across all engines. Syndicate this content to other channels to lift ChatGPT and Google AI Mode sentiment.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-label" style="color:#0F6E56;">🟢 Monitor — AI traffic conversion quality</div>
+      <div class="insight-body">7.58% key event rate from AI visitors. Watch this weekly — as AI session volume grows, even a 0.5% conversion improvement at this rate has outsized enrollment impact.</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>SMC Digital Marketing &middot; AI Intelligence Report &middot; Sources: Visby.ai + Moz Pro + GA4 &middot; Week of Sep 21, 2026</footer>
+
+<script>
+function ring(id, score, color) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  const cx=40,cy=40,r=32,lw=6;
+  ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.strokeStyle='#E8E6DF'; ctx.lineWidth=lw; ctx.stroke();
+  const end = -Math.PI/2 + (score/100)*Math.PI*2;
+  ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,end); ctx.strokeStyle=color; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
+}
+ring('r1',88,'#1baf7a'); ring('r2',75,'#eda100'); ring('r3',49,'#D85A30'); ring('r4',65,'#eda100');
+
+new Chart(document.getElementById('mentionChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Gemini','Google AI Mode','ChatGPT','Perplexity'],
+    datasets: [
+      { label: 'SMC', data: [56.8,47.3,44.6,41.5], backgroundColor: '#185FA5', borderRadius: 4 },
+      { label: 'SCC', data: [44.6,45.9,45.9,35.1], backgroundColor: '#eda100', borderRadius: 4 },
+      { label: 'Wooford', data: [0,0,2.7,2.7], backgroundColor: '#D3D1C7', borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: true, labels: { font:{size:11}, color:'#5F5E5A', boxWidth:12, boxHeight:12 } } },
+    scales: {
+      y: { min:0, max:70, ticks:{color:'#888780',font:{size:11},callback:v=>v+'%'}, grid:{color:'rgba(136,135,128,0.15)'} },
+      x: { ticks:{color:'#888780',font:{size:11}}, grid:{display:false} }
+    }
+  }
+});
+
+new Chart(document.getElementById('sentChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Gemini','Google AI Mode','ChatGPT','Perplexity'],
+    datasets: [{ label: 'Sentiment score', data: [61,60,55,52], backgroundColor: ['#1baf7a','#eda100','#eda100','#eda100'], borderRadius: 4 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { min:0, max:100, ticks:{color:'#888780',font:{size:11}}, grid:{color:'rgba(136,135,128,0.15)'} },
+      x: { ticks:{color:'#888780',font:{size:11}}, grid:{display:false} }
+    }
+  }
+});
+
+new Chart(document.getElementById('qaChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Key event rate','Engagement rate'],
+    datasets: [
+      { label: 'AI Assistant', data: [7.58,69.7], backgroundColor: '#4A2D8F', borderRadius: 4 },
+      { label: 'Organic Search', data: [3.26,55.56], backgroundColor: '#2a78d6', borderRadius: 4 },
+      { label: 'Site average', data: [0.31,84.22], backgroundColor: '#D3D1C7', borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: true, labels: { font:{size:11}, color:'#5F5E5A', boxWidth:12, boxHeight:12 } } },
+    scales: {
+      y: { min:0, max:100, ticks:{color:'#888780',font:{size:11},callback:v=>v+'%'}, grid:{color:'rgba(136,135,128,0.15)'} },
+      x: { ticks:{color:'#888780',font:{size:11}}, grid:{display:false} }
+    }
+  }
+});
+</script>
+</body>
+</html>
