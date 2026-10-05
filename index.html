@@ -16,14 +16,12 @@ header p { font-size: 12px; color: #888780; margin-top: 2px; }
 .badge-visby { background: #EDE9F6; color: #4A2D8F; }
 .badge-moz { background: #E6F1FB; color: #185FA5; }
 .badge-ga4 { background: #E1F5EE; color: #0F6E56; }
-.badge-profound { background: #FEF3C7; color: #92400E; }
 main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
 .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #888780; margin-bottom: 0.75rem; margin-top: 2rem; }
 .src { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
 .src-visby { background: #EDE9F6; color: #4A2D8F; }
 .src-moz { background: #E6F1FB; color: #185FA5; }
 .src-ga4 { background: #E1F5EE; color: #0F6E56; }
-.src-profound { background: #FEF3C7; color: #92400E; }
 .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
 .card { background: #fff; border-radius: 10px; border: 1px solid #D3D1C7; padding: 1.1rem 1.25rem; }
 .card-label { font-size: 11px; color: #888780; margin-bottom: 4px; }
@@ -32,9 +30,6 @@ main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
 .delta-pos { font-size: 12px; color: #0F6E56; font-weight: 500; margin-top: 5px; }
 .delta-neg { font-size: 12px; color: #A32D2D; font-weight: 500; margin-top: 5px; }
 .delta-flat { font-size: 12px; color: #888780; margin-top: 5px; }
-.pill-red { font-size: 11px; color: #A32D2D; background: #FCEBEB; display: inline-block; padding: 2px 8px; border-radius: 20px; margin-top: 8px; }
-.pill-amber { font-size: 11px; color: #854F0B; background: #FAEEDA; display: inline-block; padding: 2px 8px; border-radius: 20px; margin-top: 8px; }
-.pill-green { font-size: 11px; color: #0F6E56; background: #E1F5EE; display: inline-block; padding: 2px 8px; border-radius: 20px; margin-top: 8px; }
 .chart-card { background: #fff; border-radius: 10px; border: 1px solid #D3D1C7; padding: 1.5rem; }
 .chart-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
 .chart-title { font-size: 14px; font-weight: 600; color: #2C2C2A; }
@@ -55,24 +50,22 @@ main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
 .action-box.amber { background: #FAEEDA; }
 .action-box.green { background: #E1F5EE; }
 .action-box.purple { background: #EDE9F6; }
-.action-box.gold { background: #FEF3C7; }
 .action-box .al { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
 .action-box.blue .al { color: #185FA5; }
 .action-box.red .al { color: #A32D2D; }
 .action-box.amber .al { color: #854F0B; }
 .action-box.green .al { color: #0F6E56; }
 .action-box.purple .al { color: #4A2D8F; }
-.action-box.gold .al { color: #92400E; }
 .action-box .ab { font-size: 12px; line-height: 1.55; }
 .action-box.blue .ab { color: #1a4f8a; }
 .action-box.red .ab { color: #8b2222; }
 .action-box.amber .ab { color: #6b3f08; }
 .action-box.green .ab { color: #0a4d3a; }
 .action-box.purple .ab { color: #3a2070; }
-.action-box.gold .ab { color: #78350f; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th { text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #888780; padding: 0.6rem 1rem; border-bottom: 1px solid #D3D1C7; background: #F1EFE8; }
 td { padding: 0.7rem 1rem; border-bottom: 1px solid #F1EFE8; color: #444441; vertical-align: middle; }
+td.num, th.num { text-align: right; }
 tr.win td { background: #E1F5EE; }
 tr.lose td { background: #FCEBEB; }
 tr.neutral td { background: #F1EFE8; }
@@ -85,8 +78,8 @@ tr.neutral td { background: #F1EFE8; }
 .alert-bar { background: #FCEBEB; border-left: 3px solid #A32D2D; padding: 0.7rem 1rem; font-size: 12px; color: #A32D2D; margin-bottom: 1.25rem; line-height: 1.5; border-radius: 0 6px 6px 0; }
 .good-bar { background: #E1F5EE; border-left: 3px solid #1baf7a; padding: 0.7rem 1rem; font-size: 12px; color: #0F6E56; margin-bottom: 1.25rem; line-height: 1.5; border-radius: 0 6px 6px 0; }
 .note-bar { background: #FAEEDA; border-left: 3px solid #eda100; padding: 0.7rem 1rem; font-size: 12px; color: #854F0B; margin-bottom: 1.25rem; line-height: 1.5; border-radius: 0 6px 6px 0; }
-.gold-bar { background: #FEF3C7; border-left: 3px solid #F59E0B; padding: 0.7rem 1rem; font-size: 12px; color: #92400E; margin-bottom: 1.25rem; line-height: 1.5; border-radius: 0 6px 6px 0; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.table-card { background: #fff; border-radius: 10px; border: 1px solid #D3D1C7; overflow: hidden; margin-bottom: 1.5rem; }
+.table-foot { padding: 0.75rem 1rem; font-size: 11px; color: #888780; border-top: 1px solid #F1EFE8; line-height: 1.5; }
 .score-ring-wrap { display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; }
 .score-ring { position: relative; width: 80px; height: 80px; margin-bottom: 6px; }
 .score-ring canvas { position: absolute; top:0; left:0; }
@@ -95,20 +88,19 @@ tr.neutral td { background: #F1EFE8; }
 .score-amber { color: #854F0B; }
 .score-red { color: #A32D2D; }
 .score-lbl { font-size: 11px; color: #888780; text-align: center; }
-.win-badge { font-size: 10px; font-weight: 700; background: #0F6E56; color: #fff; padding: 2px 6px; border-radius: 4px; margin-left: 4px; }
-.lose-badge { font-size: 10px; font-weight: 700; background: #A32D2D; color: #fff; padding: 2px 6px; border-radius: 4px; margin-left: 4px; }
+.rings { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 1.5rem; }
+.table-scroll { overflow-x: auto; }
 footer { text-align: center; font-size: 11px; color: #888780; padding: 2rem 1rem; border-top: 1px solid #D3D1C7; margin-top: 2rem; }
-@media (max-width: 680px) { header { padding: 1rem; } main { padding: 1rem; } .two-col { grid-template-columns: 1fr; } .actions-row { grid-template-columns: 1fr; } .action-box:first-child { border-radius: 0; border-right: 1px solid #D3D1C7; } .action-box:last-child { border-radius: 0 0 10px 10px; } }
+@media (max-width: 680px) { header { padding: 1rem; } main { padding: 1rem; } .actions-row { grid-template-columns: 1fr; } .action-box:first-child { border-radius: 0; border-right: 1px solid #D3D1C7; } .action-box:last-child { border-radius: 0 0 10px 10px; } .rings { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
 <body>
 <header>
   <div>
     <h1>SMC AI Intelligence Report <span style="font-size:12px;font-weight:400;color:#888780;">— Board Edition</span></h1>
-    <p>smcsc.edu &middot; Week of Sep 28, 2026 &middot; Sources: Profound + Moz Pro + Visby.ai + GA4</p>
+    <p>smcsc.edu &middot; Week of Oct 5, 2026 &middot; Sources: Moz Pro + Visby.ai + GA4</p>
   </div>
   <div class="badges">
-    <span class="badge badge-profound">Profound</span>
     <span class="badge badge-moz">Moz Pro</span>
     <span class="badge badge-visby">Visby.ai</span>
     <span class="badge badge-ga4">GA4</span>
@@ -117,312 +109,386 @@ footer { text-align: center; font-size: 11px; color: #888780; padding: 2rem 1rem
 
 <main>
 
-  <div class="good-bar"><strong>SMC ranks #1 on all four AI engines this week (Moz).</strong> First time SMC has led every tracked engine simultaneously — ChatGPT, Gemini, Google AI Mode, and Perplexity. SMC also ranked #1 in 11 of 150 Profound prompt responses, the most of any institution in the Spartanburg market.</div>
+  <div class="good-bar"><strong>SMC still ranks #1 among the three tracked brands on all four AI engines (Moz).</strong> ChatGPT and Gemini held steady week over week. Google AI Mode fell 6.8 points and Perplexity fell 5.4 points.</div>
 
-  <div class="gold-bar"><strong>New this week: Profound competitive data — SMC vs USC Upstate vs SCC.</strong> 150 prompts run across Google AI Overviews, ChatGPT, and Google Gemini. SMC mentioned in 42% of responses. USC Upstate mentioned in 42% of responses. SMC leads USC Upstate on #1 position mentions (11 vs ~5) and on citations in Google AI Overviews and Gemini. USC Upstate leads on ChatGPT citations (157 vs 29 for SMC) — the primary content gap to close.</div>
+  <div class="note-bar"><strong>Read the headline numbers with this in mind:</strong> 23 of the 74 tracked prompts name SMC directly, and SMC is mentioned in nearly all of them. On the 35 open prompts that name neither SMC nor a competitor, SMC appears in 14% to 57% of responses depending on the engine. That is the number to grow.</div>
 
-  <!-- SMC vs USC Upstate Head to Head -->
-  <p class="section-label">SMC vs USC Upstate — competitive comparison <span class="src src-profound">Profound</span></p>
-  <div style="background:#fff;border-radius:10px;border:1px solid #D3D1C7;overflow:hidden;margin-bottom:1.5rem;">
+  <!-- Moz headline cards -->
+  <p class="section-label">AI brand mention rate — week over week <span class="src src-moz">Moz Pro</span></p>
+  <div class="metrics-grid">
+    <div class="card">
+      <div class="card-label">Gemini</div>
+      <div class="card-val">58.1%</div>
+      <div class="delta-flat">Flat vs Sep 28 (58.1%)</div>
+    </div>
+    <div class="card">
+      <div class="card-label">ChatGPT</div>
+      <div class="card-val">48.6%</div>
+      <div class="delta-flat">Flat vs Sep 28 (48.6%)</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Google AI Mode</div>
+      <div class="card-val">48.6%</div>
+      <div class="delta-neg">&#9660; 6.8 pts vs Sep 28 (55.4%)</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Perplexity</div>
+      <div class="card-val">33.8%</div>
+      <div class="delta-neg">&#9660; 5.4 pts vs Sep 28 (39.2%)</div>
+    </div>
+  </div>
+
+  <div class="chart-block">
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">SMC brand mention rate — three-week trend <span class="src src-moz">Moz Pro</span></div>
+          <div class="chart-sub">% of 74 tracked prompts where SMC is mentioned. Moz data as of Oct 3, 2026.</div>
+        </div>
+        <div class="legend">
+          <div class="li"><span class="ld" style="background:#185FA5;"></span>Oct 5</div>
+          <div class="li"><span class="ld" style="background:#8FB4DA;"></span>Sep 28</div>
+          <div class="li"><span class="ld" style="background:#D3D1C7;"></span>Sep 21</div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="mozChart" role="img" aria-label="Grouped bar chart of SMC mention rate by engine over three weeks. Gemini: 58.1, 58.1, 56.8. Google AI Mode: 48.6, 55.4, 47.3. ChatGPT: 48.6, 48.6, 44.6. Perplexity: 33.8, 39.2, 41.5.">SMC mention rate by engine, three weeks.</canvas>
+      </div>
+    </div>
+    <div class="actions-row">
+      <div class="action-box amber">
+        <div class="al">Google AI Mode — back to Sep 21 levels</div>
+        <div class="ab">Dropped from 41 to 36 of 74 prompts. After last week's high of 55.4%, this week's 48.6% is close to the Sep 21 reading of 47.3%.</div>
+      </div>
+      <div class="action-box red">
+        <div class="al">Perplexity — second weekly decline</div>
+        <div class="ab">Down from 41.5% to 39.2% to 33.8% over two weeks. It is also the weakest engine on open prompts (see below). Worth watching again next week.</div>
+      </div>
+      <div class="action-box blue">
+        <div class="al">Sample-size caution</div>
+        <div class="ab">One response is collected per prompt per engine, so each prompt is worth about 1.35 points. Moves under roughly 3 points are noise.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Branded vs open prompts -->
+  <p class="section-label">Branded vs open prompts <span class="src src-moz">Moz Pro</span></p>
+  <div class="chart-block">
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Where SMC shows up: prompts that name SMC vs open prompts</div>
+          <div class="chart-sub">Branded = 23 prompts naming SMC. Open = 35 prompts naming neither SMC nor a competitor (SCC or Wofford).</div>
+        </div>
+        <div class="legend">
+          <div class="li"><span class="ld" style="background:#185FA5;"></span>Branded (23)</div>
+          <div class="li"><span class="ld" style="background:#eb6834;"></span>Open (35)</div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="splitChart" role="img" aria-label="Grouped bar chart of SMC mention rate on branded versus open prompts. Gemini: branded 100, open 57.1. Google AI Mode: branded 100, open 37.1. ChatGPT: branded 100, open 37.1. Perplexity: branded 87.0, open 14.3.">SMC mention rate on branded vs open prompts.</canvas>
+      </div>
+    </div>
+    <div class="actions-row">
+      <div class="action-box green">
+        <div class="al">Strong where SMC is named</div>
+        <div class="ab">All four engines mention SMC on 20 of 23 branded prompts. The only misses are Perplexity.</div>
+      </div>
+      <div class="action-box red">
+        <div class="al">15 open prompts return no SMC mention anywhere</div>
+        <div class="ab">Of 35 open prompts, 15 get zero SMC mentions on all four engines. Topics: admission requirements, financial aid, tuition, how online classes work, graduation rates, associate degree explainers.</div>
+      </div>
+      <div class="action-box purple">
+        <div class="al">Where all four engines do mention SMC</div>
+        <div class="ab">Only three open prompts: majors offered at Spartanburg colleges, tuition at Spartanburg colleges, and finding online college reviews for Spartanburg.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sentiment -->
+  <p class="section-label">Brand sentiment by engine <span class="src src-moz">Moz Pro</span></p>
+  <div class="table-card">
+    <div class="table-scroll">
     <table>
       <thead>
         <tr>
-          <th>Metric</th>
-          <th>SMC</th>
+          <th>Engine</th>
+          <th>SMC score</th>
+          <th>SMC mentions (pos / neu / neg)</th>
           <th>USC Upstate</th>
           <th>SCC</th>
-          <th>Winner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ChatGPT</td>
+          <td><span class="sent-mix">57 Mixed</span></td>
+          <td>Not captured</td>
+          <td><span class="sent-pos">61 Positive</span></td>
+          <td><span class="sent-pos">60 Positive</span> &middot; 51 mentions (10 / 41 / 0)</td>
+        </tr>
+        <tr>
+          <td>Google AI Mode</td>
+          <td><span class="sent-mix">57 Mixed</span></td>
+          <td>129 (18 / 110 / 1)</td>
+          <td><span class="sent-pos">62 Positive</span> &middot; 37 mentions</td>
+          <td><span class="sent-mix">56 Mixed</span> &middot; 66 mentions</td>
+        </tr>
+        <tr>
+          <td>Gemini</td>
+          <td><span class="sent-mix">59 Mixed</span></td>
+          <td>133 (25 / 106 / 2)</td>
+          <td><span class="sent-pos">64 Positive</span> &middot; 25 mentions</td>
+          <td><span class="sent-pos">62 Positive</span> &middot; 53 mentions</td>
+        </tr>
+        <tr>
+          <td>Perplexity</td>
+          <td><span class="sent-mix">50 Mixed</span> (low confidence)</td>
+          <td>29 (1 / 27 / 1)</td>
+          <td>Not enough data</td>
+          <td>Not enough data</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="table-foot">Sentiment is neutral-heavy, not negative: 80% to 85% of SMC mentions on Google AI Mode and Gemini are neutral, with 1 to 2 negative per engine. SMC scores a few points below USC Upstate on ChatGPT, Google AI Mode and Gemini, and below SCC on ChatGPT and Gemini. Moz's theme scoring is model-generated from small samples, so treat it as directional.</div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Engine</th>
+          <th>Strongest themes</th>
+          <th>Weakest themes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ChatGPT</td>
+          <td class="pct-high">Online degree programs (92)</td>
+          <td class="pct-low">Tuition costs and fees (20) &middot; Course quality variability (25) &middot; Employee satisfaction (35)</td>
+        </tr>
+        <tr>
+          <td>Google AI Mode</td>
+          <td class="pct-high">Financial aid availability (85) &middot; College reputation (83) &middot; Academic program offerings (77)</td>
+          <td class="pct-mid">Online degree programs (50)</td>
+        </tr>
+        <tr>
+          <td>Gemini</td>
+          <td class="pct-high">Professional development programs (95) &middot; Community support (83) &middot; Flexible degree options (80)</td>
+          <td class="pct-low">Online degree availability (25) &middot; Test score policies (50)</td>
+        </tr>
+        <tr>
+          <td>Perplexity</td>
+          <td class="pct-high">Community reputation (90) &middot; Financial health ratings (90)</td>
+          <td class="pct-low">Program clarity issues (25)</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="table-foot">The online-programs story is inconsistent across engines: a strength in ChatGPT (92), middling in Google AI Mode (50), and a weakness in Gemini (25) and Perplexity (program clarity, 25).</div>
+  </div>
+
+  <!-- Citations -->
+  <p class="section-label">Who the engines cite <span class="src src-moz">Moz Pro</span></p>
+  <div class="table-card">
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Engine</th>
+          <th class="num">smcsc.edu (SMC)</th>
+          <th class="num">sccsc.edu (SCC)</th>
+          <th class="num">uscupstate.edu</th>
+          <th class="num">smc.edu (Santa Monica)</th>
+          <th class="num">Total citations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ChatGPT</td>
+          <td class="num pct-mid">32</td>
+          <td class="num">97</td>
+          <td class="num">22</td>
+          <td class="num pct-low">31</td>
+          <td class="num">350</td>
+        </tr>
+        <tr>
+          <td>Google AI Mode</td>
+          <td class="num pct-mid">36</td>
+          <td class="num">41</td>
+          <td class="num">14</td>
+          <td class="num pct-low">10</td>
+          <td class="num">252</td>
+        </tr>
+        <tr>
+          <td>Perplexity</td>
+          <td class="num pct-mid">8</td>
+          <td class="num">15</td>
+          <td class="num">&mdash;</td>
+          <td class="num pct-low">7</td>
+          <td class="num">85</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="table-foot">Main-domain (www) counts only; subdomains such as connect.smcsc.edu and online.smcsc.edu are excluded. 16 of the 74 prompts name SCC or Wofford, which inflates those schools' counts. Gemini returned only 5 citations in total and is left out.</div>
+  </div>
+
+  <div class="actions-row" style="margin-top:-1.5rem;">
+    <div class="action-box amber">
+      <div class="al">SMC is not the most-cited source about SMC</div>
+      <div class="ab">sccsc.edu out-cites smcsc.edu on ChatGPT, Google AI Mode and Perplexity. Part of that is SCC-named prompts, but it is still a signal that SCC pages are the more citable source on local college questions.</div>
+    </div>
+    <div class="action-box red">
+      <div class="al">"SMC" collides with Santa Monica College</div>
+      <div class="ab">Santa Monica is mentioned in 9 ChatGPT, 6 Gemini, 6 Google AI Mode and 3 Perplexity responses, and smc.edu is cited 31 times in ChatGPT. Visby's "smc campus life" prompt returns Santa Monica pages.</div>
+    </div>
+  </div>
+
+  <!-- Visby tracking prompts -->
+  <p class="section-label" style="margin-top:2.5rem;">Visby tracked prompts — visibility by model <span class="src src-visby">Visby.ai</span></p>
+  <div class="table-card">
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Prompt</th>
+          <th class="num">ChatGPT</th>
+          <th class="num">Gemini</th>
+          <th class="num">Claude</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>how much does spartanburg methodist college cost</td><td class="num pct-high">100%</td><td class="num pct-high">90%</td><td class="num pct-high">100%</td></tr>
+        <tr><td>How to apply to spartanburg methodist college</td><td class="num pct-high">100%</td><td class="num pct-high">90%</td><td class="num pct-high">90%</td></tr>
+        <tr><td>Spartanburg methodist college reviews</td><td class="num pct-high">87%</td><td class="num pct-high">75%</td><td class="num pct-high">85%</td></tr>
+        <tr><td>spartanburg methodist college ranking</td><td class="num pct-high">85%</td><td class="num pct-high">84%</td><td class="num pct-high">87%</td></tr>
+        <tr><td>compare spartanburg methodist vs spartanburg community college</td><td class="num pct-high">78%</td><td class="num pct-high">77%</td><td class="num pct-high">90%</td></tr>
+        <tr><td>small colleges near spartanburg sc</td><td class="num pct-mid">61%</td><td class="num pct-mid">55%</td><td class="num pct-high">73%</td></tr>
+        <tr><td>online degrees in spartanburg south carolina</td><td class="num pct-mid">40%</td><td class="num pct-mid">61%</td><td class="num pct-high">83%</td></tr>
+        <tr><td>colleges near me spartanburg</td><td class="num pct-mid">54%</td><td class="num pct-zero">0%</td><td class="num pct-mid">57%</td></tr>
+        <tr><td>smc campus life*</td><td class="num pct-zero">0%</td><td class="num pct-high">70%</td><td class="num pct-mid">49%</td></tr>
+        <tr><td>best two year colleges in south carolina</td><td class="num pct-zero">0%</td><td class="num pct-zero">0%</td><td class="num pct-zero">0%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="table-foot">*Results for "smc campus life" are dominated by Santa Monica College sources (smc.edu), so that row measures the wrong school. Visby funnel scores (OpenAI / Google / Anthropic): awareness 63 / 55 / 72, interest 100 / 90 / 90, conversion 0 / 70 / 49. The conversion score is distorted by the same prompt.</div>
+  </div>
+
+  <!-- Technical scores -->
+  <p class="section-label">Technical scores <span class="src src-visby">Visby.ai</span></p>
+  <div class="rings">
+    <div class="card score-ring-wrap"><div class="score-ring"><canvas id="r1" width="80" height="80"></canvas><div class="score-num score-green">88</div></div><div class="score-lbl">SEO &middot; 9 tasks</div></div>
+    <div class="card score-ring-wrap"><div class="score-ring"><canvas id="r2" width="80" height="80"></canvas><div class="score-num score-amber">75</div></div><div class="score-lbl">GEO &middot; 9 tasks</div></div>
+    <div class="card score-ring-wrap"><div class="score-ring"><canvas id="r3" width="80" height="80"></canvas><div class="score-num score-red">49</div></div><div class="score-lbl">Page Speed &middot; 7 tasks</div></div>
+    <div class="card score-ring-wrap"><div class="score-ring"><canvas id="r4" width="80" height="80"></canvas><div class="score-num score-amber">65</div></div><div class="score-lbl">Reviews &middot; 4 tasks</div></div>
+  </div>
+  <div class="note-bar">All four scores and pending-task counts are unchanged from last week. Page Speed at 49 remains the lowest.</div>
+
+  <!-- GA4 -->
+  <p class="section-label">Traffic quality by channel <span class="src src-ga4">GA4</span></p>
+  <div class="table-card">
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th class="num">Sessions</th>
+          <th class="num">vs last week</th>
+          <th class="num">Engagement rate</th>
+          <th class="num">Avg engagement time</th>
+          <th class="num">Key events</th>
         </tr>
       </thead>
       <tbody>
         <tr class="win">
-          <td>Overall mention rate (150 prompts)</td>
-          <td class="pct-high">42.0% (63/150)</td>
-          <td class="pct-mid">42.0% (63/150)</td>
-          <td class="pct-mid">~35%</td>
-          <td><span class="win-badge">TIE</span></td>
+          <td>AI Assistant</td>
+          <td class="num">59</td>
+          <td class="num">&#9660; 7.8%</td>
+          <td class="num pct-high">71.2%</td>
+          <td class="num">1m 12s</td>
+          <td class="num">4</td>
         </tr>
-        <tr class="win">
-          <td>Google AI Overviews mention rate</td>
-          <td class="pct-high">42.0% (21/50)</td>
-          <td class="pct-mid">36.0% (18/50)</td>
-          <td class="pct-mid">~30%</td>
-          <td><span class="win-badge">SMC</span></td>
+        <tr>
+          <td>Organic Search</td>
+          <td class="num">7,851</td>
+          <td class="num">&#9660; 0.4%</td>
+          <td class="num pct-mid">56.8%</td>
+          <td class="num">1m 02s</td>
+          <td class="num">918</td>
         </tr>
-        <tr class="neutral">
-          <td>ChatGPT mention rate</td>
-          <td class="pct-mid">46.0% (23/50)</td>
-          <td class="pct-high">54.0% (27/50)</td>
-          <td class="pct-mid">~30%</td>
-          <td><span class="lose-badge">USC</span></td>
+        <tr>
+          <td>Paid Search</td>
+          <td class="num">4,367</td>
+          <td class="num">&#9660; 11.8%</td>
+          <td class="num pct-mid">49.7%</td>
+          <td class="num">55s</td>
+          <td class="num">562</td>
         </tr>
-        <tr class="win">
-          <td>Google Gemini mention rate</td>
-          <td class="pct-high">38.0% (19/50)</td>
-          <td class="pct-mid">36.0% (18/50)</td>
-          <td class="pct-mid">~25%</td>
-          <td><span class="win-badge">SMC</span></td>
+        <tr>
+          <td>Email</td>
+          <td class="num">598</td>
+          <td class="num">&#9660; 4.9%</td>
+          <td class="num pct-mid">48.2%</td>
+          <td class="num">43s</td>
+          <td class="num">71</td>
         </tr>
-        <tr class="win">
-          <td>Ranked #1 in responses</td>
-          <td class="pct-high">11 times</td>
-          <td class="pct-mid">~5 times</td>
-          <td class="pct-mid">~4 times</td>
-          <td><span class="win-badge">SMC</span></td>
-        </tr>
-        <tr class="win">
-          <td>Google AI Overviews citations</td>
-          <td class="pct-high">35</td>
-          <td class="pct-mid">17</td>
-          <td class="pct-mid">~20</td>
-          <td><span class="win-badge">SMC</span></td>
-        </tr>
-        <tr class="win">
-          <td>Google Gemini citations</td>
-          <td class="pct-high">30</td>
-          <td class="pct-mid">16</td>
-          <td class="pct-mid">~10</td>
-          <td><span class="win-badge">SMC</span></td>
-        </tr>
-        <tr class="neutral">
-          <td>ChatGPT citations</td>
-          <td class="pct-low">29</td>
-          <td class="pct-high">157</td>
-          <td class="pct-mid">~40</td>
-          <td><span class="lose-badge">USC</span></td>
-        </tr>
-        <tr class="win">
-          <td>Total citations across all engines</td>
-          <td class="pct-mid">94</td>
-          <td class="pct-low">190</td>
-          <td class="pct-mid">~70</td>
-          <td><span class="lose-badge">USC*</span></td>
+        <tr class="lose">
+          <td>Paid Social</td>
+          <td class="num">5,790</td>
+          <td class="num">&#9660; 10.2%</td>
+          <td class="num pct-low">5.3%</td>
+          <td class="num">0s</td>
+          <td class="num pct-zero">0</td>
         </tr>
       </tbody>
     </table>
-    <div style="padding:0.75rem 1rem;font-size:11px;color:#888780;border-top:1px solid #F1EFE8;">*USC Upstate's total citation advantage is driven almost entirely by ChatGPT (157 of 190 citations). SMC leads USC Upstate on Google AI Overviews and Gemini citations.</div>
+    </div>
+    <div class="table-foot">GA4 Traffic acquisition, last 28 days (Sep 7 – Oct 4, 2026). Direct accounts for 86% of all sessions (243,379), so channel shares understate the other sources. Last-week comparison uses the Sep 28 report's rolling 28-day window.</div>
   </div>
 
-  <!-- Mention rate by engine -->
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">AI mention rate by engine — SMC vs USC Upstate vs SCC <span class="src src-profound">Profound</span></div>
-          <div class="chart-sub">% of 50 prompts per engine where each institution was mentioned (150 total prompts)</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#185FA5;"></span>SMC</div>
-          <div class="li"><span class="ld" style="background:#eb6834;"></span>USC Upstate</div>
-          <div class="li"><span class="ld" style="background:#eda100;"></span>SCC</div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <canvas id="mentionChart" role="img" aria-label="Grouped bar chart. Google AI Overviews: SMC 42%, USC 36%, SCC 30%. ChatGPT: SMC 46%, USC 54%, SCC 30%. Gemini: SMC 38%, USC 36%, SCC 25%.">SMC leads on Google AI Overviews and Gemini. USC Upstate leads on ChatGPT.</canvas>
-      </div>
+  <div class="actions-row" style="margin-top:-1.5rem;">
+    <div class="action-box green">
+      <div class="al">AI visitors engage well, at tiny volume</div>
+      <div class="ab">AI Assistant sessions engage at 71.2% (vs 56.8% organic) and run 1m 12s on average, but 59 sessions is 0.02% of site traffic. Visby attributes 58 visits to ChatGPT (+66%) and 3 to Gemini (+100%) over Sep 5 – Oct 5; Claude, Perplexity and Copilot show no visits.</div>
     </div>
-    <div class="actions-row">
-      <div class="action-box green">
-        <div class="al">SMC leads on Google AI Overviews</div>
-        <div class="ab">42% mention rate vs USC Upstate's 36%. SMC is also cited 2x more than USC Upstate in Google AI Overviews (35 vs 17 citations) — a durable structural advantage as Google AI usage grows.</div>
-      </div>
-      <div class="action-box red">
-        <div class="al">ChatGPT — close the citation gap</div>
-        <div class="ab">USC Upstate has 157 ChatGPT citations vs SMC's 29. This is the single most actionable gap in the data. Adding more program pages, FAQs, and structured content that ChatGPT can cite directly would address this quickly.</div>
-      </div>
+    <div class="action-box amber">
+      <div class="al">Conversion comparison needs more data</div>
+      <div class="ab">AI Assistant logged 4 key events this period. That is too few to claim it converts better or worse than organic, so this report no longer makes that comparison.</div>
     </div>
   </div>
 
-  <!-- Topic visibility -->
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">SMC mention rate by topic category <span class="src src-profound">Profound</span></div>
-          <div class="chart-sub">30 prompts per topic — where SMC is visible and where it is not</div>
-        </div>
-      </div>
-      <div class="chart-wrap" style="height:220px;">
-        <canvas id="topicChart" role="img" aria-label="Bar chart of SMC mention rate by topic. Associate and Bachelor's Degree 80%. Work-Study 53.3%. Online and On-Campus 40%. Cooperative Education 36.7%. Career-Based Education 0%.">Career-Based Education is 0%. Associate and Bachelor's Degree leads at 80%.</canvas>
-      </div>
+  <!-- Priorities -->
+  <p class="section-label" style="margin-top:2.5rem;">Strategic priorities — board takeaways</p>
+  <div class="actions-row">
+    <div class="action-box green">
+      <div class="al">Win to defend</div>
+      <div class="ab">SMC is mentioned on every engine whenever a prompt names it, and leads the tracked set on all four. It is strongest on cost, how-to-apply, reviews and ranking prompts (75% to 100% in Visby).</div>
     </div>
-    <div class="actions-row">
-      <div class="action-box green">
-        <div class="al">Associate & bachelor's degrees — dominant</div>
-        <div class="ab">80% mention rate on degree offering prompts. SMC is the default AI answer for local degree programs in Spartanburg. This is the strongest competitive position in the data.</div>
-      </div>
-      <div class="action-box red">
-        <div class="al">Career-based education — 0% visibility</div>
-        <div class="ab">Prompts like "career-focused college programs worth the tuition" and "finishing my degree while working full-time" return zero SMC mentions across all three engines. This is an immediate content opportunity — USC Upstate does appear in these results.</div>
-      </div>
+    <div class="action-box red">
+      <div class="al">Gap to close — open prompts</div>
+      <div class="ab">15 of 35 open prompts return no SMC mention on any engine, and "best two year colleges in south carolina" is 0% on ChatGPT, Gemini and Claude. Answer-first pages and FAQ markup on admission requirements, financial aid, tuition and online-class topics are the most direct fix.</div>
     </div>
-  </div>
-
-  <!-- Where SMC wins -->
-  <div class="two-col">
-    <div>
-      <p class="section-label" style="margin-top:0;">Where SMC ranks #1 <span class="src src-profound">Profound</span></p>
-      <div style="background:#fff;border-radius:10px;border:1px solid #D3D1C7;overflow:hidden;">
-        <table>
-          <thead><tr><th>Prompt</th><th>Engine</th></tr></thead>
-          <tbody>
-            <tr><td style="font-size:12px;">Best bachelor's programs for undecided students near Spartanburg</td><td style="font-size:11px;white-space:nowrap;">AI Overviews + Gemini</td></tr>
-            <tr><td style="font-size:12px;">Best colleges for work-study programs near Spartanburg</td><td style="font-size:11px;white-space:nowrap;">AI Overviews</td></tr>
-            <tr><td style="font-size:12px;">Spartanburg colleges with most personal support for first-year students</td><td style="font-size:11px;white-space:nowrap;">AI Overviews</td></tr>
-            <tr><td style="font-size:12px;">How do Spartanburg colleges compare for co-op job placement?</td><td style="font-size:11px;white-space:nowrap;">All 3 engines</td></tr>
-            <tr><td style="font-size:12px;">Colleges near Spartanburg — associate degrees in criminal justice</td><td style="font-size:11px;white-space:nowrap;">AI Overviews + Gemini</td></tr>
-            <tr><td style="font-size:12px;">Spartanburg colleges — work-study with useful career experience</td><td style="font-size:11px;white-space:nowrap;">AI Overviews</td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="action-box amber">
+      <div class="al">Gap to close — online programs</div>
+      <div class="ab">Sentiment on online degrees ranges from 92 (ChatGPT) to 25 (Gemini, Perplexity). Consistent program names, pricing and start-date information across smcsc.edu and online.smcsc.edu would give the engines one story to repeat.</div>
     </div>
-    <div>
-      <p class="section-label" style="margin-top:0;">Where USC Upstate appears, SMC does not <span class="src src-profound">Profound</span></p>
-      <div style="background:#fff;border-radius:10px;border:1px solid #D3D1C7;overflow:hidden;">
-        <table>
-          <thead><tr><th>Prompt gap</th><th>Engine</th></tr></thead>
-          <tbody>
-            <tr><td style="font-size:12px;">Online bachelor's programs working adults recommend in SC</td><td style="font-size:11px;white-space:nowrap;">AI Overviews</td></tr>
-            <tr><td style="font-size:12px;">Where can I finish my bachelor's degree online in SC?</td><td style="font-size:11px;white-space:nowrap;">AI Overviews + ChatGPT</td></tr>
-            <tr><td style="font-size:12px;">SC colleges accepting the most transfer credits online</td><td style="font-size:11px;white-space:nowrap;">ChatGPT</td></tr>
-            <tr><td style="font-size:12px;">What SC colleges do working adults recommend for online degrees?</td><td style="font-size:11px;white-space:nowrap;">AI Overviews + ChatGPT</td></tr>
-            <tr><td style="font-size:12px;">Online degree programs in SC actually worth the tuition</td><td style="font-size:11px;white-space:nowrap;">ChatGPT + Gemini</td></tr>
-            <tr><td style="font-size:12px;">Small colleges near Spartanburg for business degrees</td><td style="font-size:11px;white-space:nowrap;">Gemini</td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="action-box blue">
+      <div class="al">Brand name clarity</div>
+      <div class="ab">Santa Monica College shares the "SMC" abbreviation. Using "Spartanburg Methodist College" or "SMC Spartanburg" in titles, schema and tracked prompts reduces the mix-up.</div>
     </div>
-  </div>
-
-  <!-- Citation comparison chart -->
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">Citation count by engine — SMC vs USC Upstate <span class="src src-profound">Profound</span></div>
-          <div class="chart-sub">How many times each institution's pages were cited as sources in AI responses</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#185FA5;"></span>SMC (smcsc.edu)</div>
-          <div class="li"><span class="ld" style="background:#eb6834;"></span>USC Upstate (uscupstate.edu)</div>
-        </div>
-      </div>
-      <div class="chart-wrap" style="height:220px;">
-        <canvas id="citeChart" role="img" aria-label="Grouped bar chart of citations. Google AI Overviews: SMC 35, USC 17. Gemini: SMC 30, USC 16. ChatGPT: SMC 29, USC 157.">SMC leads on Google AI Overviews and Gemini. USC Upstate dominates ChatGPT citations at 157 vs 29.</canvas>
-      </div>
-    </div>
-    <div class="actions-row">
-      <div class="action-box green">
-        <div class="al">SMC dominates Google + Gemini citations</div>
-        <div class="ab">35 Google AI Overviews citations and 30 Gemini citations vs USC Upstate's 17 and 16. As Google AI Mode and AI Overviews grow in search share, SMC's citation lead here is a durable competitive advantage.</div>
-      </div>
-      <div class="action-box red">
-        <div class="al">ChatGPT citation gap: 29 vs 157</div>
-        <div class="ab">USC Upstate has 5.4x more ChatGPT citations than SMC. ChatGPT draws heavily from structured, well-cited web content. Priorities: online program pages with clear pricing, FAQ schema markup, and third-party mentions on high-DA sites.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Moz engine mention rates -->
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">SMC brand mention rate — week-over-week trend <span class="src src-moz">Moz Pro</span></div>
-          <div class="chart-sub">Sep 21 vs Sep 28 — SMC now ranks #1 on all four engines</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#185FA5;"></span>Sep 28</div>
-          <div class="li"><span class="ld" style="background:#D3D1C7;"></span>Sep 21</div>
-        </div>
-      </div>
-      <div class="chart-wrap" style="height:200px;">
-        <canvas id="mozChart" role="img" aria-label="Grouped bar chart comparing Sep 28 vs Sep 21 Moz mention rates. Gemini 58.1 vs 56.8. Google AI 55.4 vs 47.3. ChatGPT 48.6 vs 44.6. Perplexity 39.2 vs 41.5.">All engines up except Perplexity which dipped slightly.</canvas>
-      </div>
-    </div>
-    <div class="actions-row">
-      <div class="action-box green">
-        <div class="al">Gemini &amp; Google AI Mode — strongest week</div>
-        <div class="ab">Gemini at 58.1% and Google AI Mode at 55.4% — both best weekly readings this cycle. SMC ranks 1st on both, ahead of SCC and Wooford on every metric.</div>
-      </div>
-      <div class="action-box amber">
-        <div class="al">Perplexity dipped — monitor next week</div>
-        <div class="ab">Dropped from 41.5% to 39.2% (-2.3%). Only engine to decline this week. Perplexity is citation-driven so any changes in third-party references to smcsc.edu could be the cause.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Visby scores + GA4 -->
-  <div class="two-col">
-    <div>
-      <p class="section-label" style="margin-top:0;">Technical scores <span class="src src-visby">Visby.ai</span></p>
-      <div style="background:#fff;border-radius:10px;border:1px solid #D3D1C7;padding:1.25rem;">
-        <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem;">
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:#888780;margin-bottom:6px;">SEO</div>
-            <div style="position:relative;width:70px;height:70px;margin:0 auto 4px;"><canvas id="r1" width="70" height="70"></canvas><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:19px;font-weight:700;color:#0F6E56;">88</div></div>
-            <div style="font-size:10px;color:#888780;">9 tasks</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:#888780;margin-bottom:6px;">GEO</div>
-            <div style="position:relative;width:70px;height:70px;margin:0 auto 4px;"><canvas id="r2" width="70" height="70"></canvas><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:19px;font-weight:700;color:#854F0B;">75</div></div>
-            <div style="font-size:10px;color:#888780;">9 tasks</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:#888780;margin-bottom:6px;">Page Speed</div>
-            <div style="position:relative;width:70px;height:70px;margin:0 auto 4px;"><canvas id="r3" width="70" height="70"></canvas><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:19px;font-weight:700;color:#A32D2D;">49</div></div>
-            <div style="font-size:10px;color:#888780;color:#A32D2D;">⚠️ 7 tasks</div>
-          </div>
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:#888780;margin-bottom:6px;">Reviews</div>
-            <div style="position:relative;width:70px;height:70px;margin:0 auto 4px;"><canvas id="r4" width="70" height="70"></canvas><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:19px;font-weight:700;color:#854F0B;">65</div></div>
-            <div style="font-size:10px;color:#888780;">4 tasks</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <p class="section-label" style="margin-top:0;">AI traffic quality <span class="src src-ga4">GA4</span></p>
-      <div style="background:#fff;border-radius:10px;border:1px solid #D3D1C7;padding:1.25rem;">
-        <table>
-          <thead><tr><th>Channel</th><th>Sessions</th><th>Engagement</th><th>Key event rate</th></tr></thead>
-          <tbody>
-            <tr style="background:#EDE9F6;"><td style="font-weight:500;">AI Assistant</td><td>64</td><td>70.3%</td><td class="pct-high">~7.0%</td></tr>
-            <tr><td style="font-weight:500;">Organic Search</td><td>7,886</td><td>56.1%</td><td class="pct-mid">3.3%</td></tr>
-            <tr><td style="font-weight:500;">Paid Search</td><td>4,950</td><td>48.2%</td><td class="pct-mid">3.2%</td></tr>
-            <tr><td style="font-weight:500;">Email</td><td>629</td><td>41.5%</td><td class="pct-mid">2.1%</td></tr>
-            <tr><td style="font-weight:500;">Paid Social</td><td>6,451</td><td>4.2%</td><td class="pct-zero">0.0%</td></tr>
-          </tbody>
-        </table>
-        <div style="font-size:11px;color:#0F6E56;margin-top:8px;padding:6px 8px;background:#E1F5EE;border-radius:6px;">AI visitors convert at <strong>2.1x the rate of organic search</strong> — highest quality traffic source on the site despite lowest volume.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Strategic priorities -->
-  <p class="section-label">Strategic priorities — board takeaways</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:2rem;">
-    <div style="background:#fff;border-radius:10px;border:2px solid #0F6E56;padding:1.1rem 1.25rem;">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#0F6E56;margin-bottom:6px;">🏆 Win to defend</div>
-      <div style="font-size:13px;color:#2C2C2A;line-height:1.5;">SMC is the dominant AI answer for local degree programs and first-year student support in Spartanburg. Google AI Overviews and Gemini citations are 2x USC Upstate. This position is strong and must be maintained.</div>
-    </div>
-    <div style="background:#fff;border-radius:10px;border:2px solid #A32D2D;padding:1.1rem 1.25rem;">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#A32D2D;margin-bottom:6px;">🎯 Gap to close — ChatGPT</div>
-      <div style="font-size:13px;color:#2C2C2A;line-height:1.5;">USC Upstate has 157 ChatGPT citations vs SMC's 29. Adding FAQ schema, program pricing pages, and structured content to smcsc.edu would directly address this gap within 60–90 days.</div>
-    </div>
-    <div style="background:#fff;border-radius:10px;border:2px solid #A32D2D;padding:1.1rem 1.25rem;">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#A32D2D;margin-bottom:6px;">🎯 Gap to close — career content</div>
-      <div style="font-size:13px;color:#2C2C2A;line-height:1.5;">SMC has 0% visibility on career-based education prompts across all three engines. 30 high-value prompts about working adults, career programs, and degree completion return zero SMC mentions. First mover wins this category.</div>
-    </div>
-    <div style="background:#fff;border-radius:10px;border:2px solid #854F0B;padding:1.1rem 1.25rem;">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:#854F0B;margin-bottom:6px;">⚡ Quick win — page speed</div>
-      <div style="font-size:13px;color:#2C2C2A;line-height:1.5;">Page speed score of 49 (7 pending tasks) affects both traditional SEO and AI crawlability. Addressing Visby's pending tasks would improve citation potential across all engines within weeks.</div>
+    <div class="action-box purple">
+      <div class="al">Quick win — page speed</div>
+      <div class="ab">Page Speed is 49 with 7 tasks pending, unchanged from last week. It affects both traditional SEO and how reliably AI crawlers reach the site.</div>
     </div>
   </div>
 
 </main>
 
-<footer>SMC Digital Marketing &middot; AI Intelligence Report — Board Edition &middot; Sources: Profound + Moz Pro + Visby.ai + GA4 &middot; Sep 28, 2026</footer>
+<footer>SMC Digital Marketing &middot; AI Intelligence Report — Board Edition &middot; Sources: Moz Pro + Visby.ai + GA4 &middot; Oct 5, 2026</footer>
 
 <script>
 function ring(id, score, color, size) {
@@ -430,84 +496,52 @@ function ring(id, score, color, size) {
   if (!c) return;
   const s = size || 40;
   const ctx = c.getContext('2d');
-  const cx=s,cy=s,r=s*0.8,lw=s*0.15;
+  const cx=40,cy=40,r=32,lw=7;
   ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.strokeStyle='#E8E6DF'; ctx.lineWidth=lw; ctx.stroke();
   const end = -Math.PI/2 + (score/100)*Math.PI*2;
   ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,end); ctx.strokeStyle=color; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
 }
-ring('r1',88,'#1baf7a',35); ring('r2',75,'#eda100',35); ring('r3',49,'#D85A30',35); ring('r4',65,'#eda100',35);
+ring('r1',88,'#1baf7a'); ring('r2',75,'#eda100'); ring('r3',49,'#D85A30'); ring('r4',65,'#eda100');
 
-new Chart(document.getElementById('mentionChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Google AI Overviews','ChatGPT','Google Gemini'],
-    datasets: [
-      { label: 'SMC', data: [42,46,38], backgroundColor: '#185FA5', borderRadius: 4 },
-      { label: 'USC Upstate', data: [36,54,36], backgroundColor: '#eb6834', borderRadius: 4 },
-      { label: 'SCC', data: [30,30,25], backgroundColor: '#eda100', borderRadius: 4 }
-    ]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { display: true, labels: { font:{size:11}, color:'#5F5E5A', boxWidth:12, boxHeight:12 } } },
-    scales: {
-      y: { min:0, max:70, ticks:{color:'#888780',font:{size:11},callback:v=>v+'%'}, grid:{color:'rgba(136,135,128,0.15)'} },
-      x: { ticks:{color:'#888780',font:{size:11}}, grid:{display:false} }
-    }
-  }
-});
-
-new Chart(document.getElementById('topicChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Associate & Bachelor\'s Degrees','Work-Study','Online & On-Campus','Cooperative Education','Career-Based Education'],
-    datasets: [{ label: 'SMC mention rate', data: [80,53.3,40,36.7,0], backgroundColor: ['#1baf7a','#2a78d6','#2a78d6','#eda100','#A32D2D'], borderRadius: 4 }]
-  },
-  options: {
-    indexAxis: 'y',
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { min:0, max:100, ticks:{color:'#888780',font:{size:11},callback:v=>v+'%'}, grid:{color:'rgba(136,135,128,0.15)'} },
-      y: { ticks:{color:'#888780',font:{size:11}}, grid:{display:false} }
-    }
-  }
-});
-
-new Chart(document.getElementById('citeChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Google AI Overviews','Google Gemini','ChatGPT'],
-    datasets: [
-      { label: 'SMC (smcsc.edu)', data: [35,30,29], backgroundColor: '#185FA5', borderRadius: 4 },
-      { label: 'USC Upstate', data: [17,16,157], backgroundColor: '#eb6834', borderRadius: 4 }
-    ]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { display: true, labels: { font:{size:11}, color:'#5F5E5A', boxWidth:12, boxHeight:12 } } },
-    scales: {
-      y: { min:0, max:175, ticks:{color:'#888780',font:{size:11}}, grid:{color:'rgba(136,135,128,0.15)'} },
-      x: { ticks:{color:'#888780',font:{size:11}}, grid:{display:false} }
-    }
-  }
-});
+const gridColor = 'rgba(136,135,128,0.15)';
+const tick = {color:'#888780',font:{size:11}};
+const legendOff = { legend: { display: false } };
 
 new Chart(document.getElementById('mozChart'), {
   type: 'bar',
   data: {
     labels: ['Gemini','Google AI Mode','ChatGPT','Perplexity'],
     datasets: [
-      { label: 'Sep 28', data: [58.1,55.4,48.6,39.2], backgroundColor: '#185FA5', borderRadius: 4 },
+      { label: 'Oct 5', data: [58.1,48.6,48.6,33.8], backgroundColor: '#185FA5', borderRadius: 4 },
+      { label: 'Sep 28', data: [58.1,55.4,48.6,39.2], backgroundColor: '#8FB4DA', borderRadius: 4 },
       { label: 'Sep 21', data: [56.8,47.3,44.6,41.5], backgroundColor: '#D3D1C7', borderRadius: 4 }
     ]
   },
   options: {
     responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { display: true, labels: { font:{size:11}, color:'#5F5E5A', boxWidth:12, boxHeight:12 } } },
+    plugins: legendOff,
     scales: {
-      y: { min:0, max:75, ticks:{color:'#888780',font:{size:11},callback:v=>v+'%'}, grid:{color:'rgba(136,135,128,0.15)'} },
-      x: { ticks:{color:'#888780',font:{size:11}}, grid:{display:false} }
+      y: { min:0, max:75, ticks:{...tick, callback:v=>v+'%'}, grid:{color:gridColor} },
+      x: { ticks:tick, grid:{display:false} }
+    }
+  }
+});
+
+new Chart(document.getElementById('splitChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Gemini','Google AI Mode','ChatGPT','Perplexity'],
+    datasets: [
+      { label: 'Branded (23 prompts)', data: [100,100,100,87.0], backgroundColor: '#185FA5', borderRadius: 4 },
+      { label: 'Open (35 prompts)', data: [57.1,37.1,37.1,14.3], backgroundColor: '#eb6834', borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: legendOff,
+    scales: {
+      y: { min:0, max:110, ticks:{...tick, callback:v=>v<=100?v+'%':''}, grid:{color:gridColor} },
+      x: { ticks:tick, grid:{display:false} }
     }
   }
 });
