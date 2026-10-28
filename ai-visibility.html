@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMC AI Visibility Report</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       background: #f7f6f2; color: #2c2c2a; line-height: 1.5; }
+header { background: #fff; border-bottom: 1px solid #d3d1c7; padding: 1.25rem 2rem;
+         display: flex; justify-content: space-between; align-items: center;
+         flex-wrap: wrap; gap: 0.75rem; }
+header h1 { font-size: 18px; font-weight: 600; }
+header p { font-size: 12px; color: #888780; margin-top: 2px; }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+.badge-d4s { background: #fdebe4; color: #9a3412; }
+.badge-ser { background: #e3f4f8; color: #0b6478; }
+.badge-sys { background: #e6f1fb; color: #185fa5; }
+.badge-warn { background: #faeeda; color: #854f0b; }
+main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+                 text-transform: uppercase; color: #888780; margin-bottom: 0.75rem; margin-top: 2rem; }
+.card { background: #fff; border-radius: 10px; border: 1px solid #d3d1c7; padding: 1.1rem 1.25rem; }
+.good-bar { background: #e1f5ee; border-left: 3px solid #1baf7a; padding: 0.7rem 1rem;
+            font-size: 12px; color: #0f6e56; margin-bottom: 1rem; line-height: 1.5;
+            border-radius: 0 6px 6px 0; }
+.note-bar { background: #faeeda; border-left: 3px solid #eda100; padding: 0.7rem 1rem;
+            font-size: 12px; color: #854f0b; margin-bottom: 1rem; line-height: 1.5;
+            border-radius: 0 6px 6px 0; }
+.info-bar { background: #e6f1fb; border-left: 3px solid #2a78d6; padding: 0.7rem 1rem;
+            font-size: 12px; color: #185fa5; margin-bottom: 1rem; line-height: 1.5;
+            border-radius: 0 6px 6px 0; }
+.bad-bar { background: #fdeceb; border-left: 3px solid #a32d2d; padding: 0.7rem 1rem;
+           font-size: 12px; color: #a32d2d; margin-bottom: 1rem; line-height: 1.5;
+           border-radius: 0 6px 6px 0; }
+.wow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+            gap: 12px; margin-bottom: 1.5rem; }
+.wow-engine { font-size: 10px; font-weight: 600; text-transform: uppercase;
+              letter-spacing: 0.07em; color: #888780; margin-bottom: 6px; }
+.wow-val { font-size: 26px; font-weight: 600; color: #2c2c2a; line-height: 1;
+           letter-spacing: -0.02em; }
+.wow-sub { font-size: 12px; color: #888780; margin-top: 6px; }
+.chart-block { margin-bottom: 1.5rem; }
+.chart-card { background: #fff; border-radius: 10px 10px 0 0; border: 1px solid #d3d1c7;
+              padding: 1.5rem; }
+.chart-head { display: flex; align-items: flex-start; justify-content: space-between;
+              flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
+.chart-title { font-size: 14px; font-weight: 600; color: #2c2c2a; }
+.chart-sub { font-size: 12px; color: #888780; margin-top: 2px; }
+.src { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 10px;
+       margin-left: 6px; vertical-align: middle; }
+.src-d4s { background: #fdebe4; color: #9a3412; }
+.chart-wrap { position: relative; height: 260px; }
+.actions-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.action-box { padding: 1rem 1.25rem; border-bottom: 1px solid #d3d1c7; border-left: 1px solid #d3d1c7;
+              border-top: none; border-right: none; }
+.action-box:last-child { border-right: 1px solid #d3d1c7; border-radius: 0 0 10px 0; }
+.action-box:first-child { border-radius: 0 0 0 10px; }
+.action-box.blue { background: #e6f1fb; }
+.action-box.amber { background: #faeeda; }
+.action-box.green { background: #e1f5ee; }
+.action-box .al { font-size: 11px; font-weight: 600; text-transform: uppercase;
+                  letter-spacing: 0.06em; margin-bottom: 5px; }
+.action-box.blue .al { color: #185fa5; }
+.action-box.amber .al { color: #854f0b; }
+.action-box.green .al { color: #0f6e56; }
+.action-box .ab { font-size: 12px; line-height: 1.55; }
+.action-box.blue .ab { color: #1a4f8a; }
+.action-box.amber .ab { color: #6b3f08; }
+.action-box.green .ab { color: #0a4d3a; }
+.table-card { background: #fff; border-radius: 10px; border: 1px solid #d3d1c7;
+              overflow: hidden; margin-bottom: 1.5rem; }
+.table-card.attached { border-radius: 10px 10px 0 0; margin-bottom: 0; }
+.table-scroll { overflow-x: auto; }
+.table-foot { padding: 0.75rem 1rem; font-size: 11px; color: #888780;
+              border-top: 1px solid #f1efe8; line-height: 1.5; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+     text-transform: uppercase; color: #888780; padding: 0.6rem 1rem;
+     border-bottom: 1px solid #d3d1c7; background: #f1efe8; }
+td { padding: 0.7rem 1rem; border-bottom: 1px solid #f1efe8; color: #444441;
+     vertical-align: middle; }
+td.num, th.num { text-align: right; }
+tr.highlight td { background: #e1f5ee; }
+tr.dim td { color: #888780; }
+.pct-high { color: #0f6e56; font-weight: 600; }
+.pct-mid { color: #854f0b; font-weight: 500; }
+.pct-low { color: #888780; }
+.pct-zero { color: #a32d2d; font-weight: 600; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid #d3d1c7; margin-bottom: 1.5rem; }
+.tab { background: none; border: none; font-family: inherit; font-size: 13px; font-weight: 600;
+       color: #888780; padding: 0.6rem 1rem; cursor: pointer; border-bottom: 2px solid transparent;
+       margin-bottom: -1px; }
+.tab.on { color: #2c2c2a; border-bottom-color: #2a78d6; }
+.panel { display: none; }
+.panel.on { display: block; }
+.bar { height: 6px; background: #eb6834; border-radius: 3px; display: inline-block;
+       vertical-align: middle; min-width: 2px; }
+footer { text-align: center; font-size: 11px; color: #888780; padding: 2rem 1rem;
+         border-top: 1px solid #d3d1c7; margin-top: 2rem; line-height: 1.8; }
+@media (max-width: 680px) {
+  header { padding: 1rem; } main { padding: 1rem; }
+  .actions-row { grid-template-columns: 1fr; }
+  .action-box, .action-box:first-child, .action-box:last-child { border-radius: 0;
+    border-right: 1px solid #d3d1c7; }
+  .action-box:last-child { border-radius: 0 0 10px 10px; }
+}
+</style></head>
+<body>
+<header>
+  <div>
+    <h1>SMC AI Visibility Report</h1>
+    <p>smcsc.edu &middot; Run 2026-10-27 &middot; 67 responses
+       &middot; Sources: DataForSEO LLM Scraper + SE Ranking</p>
+  </div>
+  <div class="badges">
+    <span class="badge badge-d4s">DataForSEO</span>
+    <span class="badge badge-ser">SE Ranking</span>
+    <span class="badge badge-sys">2 surfaces</span>
+    
+    <a href="index.html" style="text-decoration:none" title="Full AI Intelligence Report: Moz, GA4, Visby"><span class="badge badge-sys">&larr; Intelligence Report</span></a>
+  </div>
+</header>
+
+<main>
+  <div class="bad-bar"><strong>2 prompt(s) score 0 on every sample:</strong> unb_scholarship, unb_transfer_online. A 0/N is a content or prompt problem, not noise.</div>
+  <div class="info-bar">Every figure below is a <strong>rate with its sample size</strong>:
+    named in <em>X of N</em> responses under this exact prompt set and configuration.
+    Not an absolute ranking, and not comparable to a different vendor's number.</div>
+
+  <div class="tabs">
+    <button class="tab on" data-tab="t1">Head to Head</button>
+    <button class="tab" data-tab="t2">Who Else Is Eating Our Terms</button>
+  </div>
+
+  <div class="panel on" id="t1">
+    <p class="section-label">At a glance</p>
+    <div class="wow-grid">
+      <div class="card"><div class="wow-engine">SMC mention rate</div>
+        <div class="wow-val pct-high">81.8%</div>
+        <div class="wow-sub">27 of 33 responses</div></div>
+      <div class="card"><div class="wow-engine">Spartanburg Community College</div>
+        <div class="wow-val">15.2%</div>
+        <div class="wow-sub">5 of 33 responses</div></div>
+      <div class="card"><div class="wow-engine">USC Upstate</div>
+        <div class="wow-val">27.3%</div>
+        <div class="wow-sub">9 of 33 responses</div></div>
+      <div class="card"><div class="wow-engine">Responses collected</div>
+        <div class="wow-val">67</div>
+        <div class="wow-sub">0 failed</div></div></div>
+
+    <p class="section-label">Mention rate by surface</p>
+    <div class="chart-block">
+      <div class="chart-card">
+        <div class="chart-head">
+          <div><div class="chart-title">Mention rate by surface
+            <span class="src src-d4s">DataForSEO</span></div>
+            <div class="chart-sub">Share of responses naming each institution, pooled across samples</div></div>
+        </div>
+        <div class="chart-wrap"><canvas id="h2hChart"></canvas></div>
+      </div>
+      <div class="table-card attached">
+        <div class="table-scroll">
+        <table><thead><tr><th>Surface</th><th>Entity</th><th class="num">Mention rate</th>
+          <th class="num">Mentions</th><th class="num">Citation rate</th>
+          <th class="num">Citations</th></tr></thead>
+          <tbody>
+          <tr class="highlight"><td>chatgpt</td><td>Spartanburg Methodist College</td>
+            <td class="num pct-high">81.8%</td>
+            <td class="num">27/33</td>
+            <td class="num">81.8%</td>
+            <td class="num">27/33</td></tr>
+          <tr class=""><td>chatgpt</td><td>Spartanburg Community College</td>
+            <td class="num pct-low">15.2%</td>
+            <td class="num">5/33</td>
+            <td class="num">45.5%</td>
+            <td class="num">15/33</td></tr>
+          <tr class=""><td>chatgpt</td><td>USC Upstate</td>
+            <td class="num pct-low">27.3%</td>
+            <td class="num">9/33</td>
+            <td class="num">39.4%</td>
+            <td class="num">13/33</td></tr>
+          <tr class="highlight"><td>gemini</td><td>Spartanburg Methodist College</td>
+            <td class="num pct-high">78.8%</td>
+            <td class="num">26/33</td>
+            <td class="num">69.7%</td>
+            <td class="num">23/33</td></tr>
+          <tr class=""><td>gemini</td><td>Spartanburg Community College</td>
+            <td class="num pct-low">18.2%</td>
+            <td class="num">6/33</td>
+            <td class="num">18.2%</td>
+            <td class="num">6/33</td></tr>
+          <tr class=""><td>gemini</td><td>USC Upstate</td>
+            <td class="num pct-mid">30.3%</td>
+            <td class="num">10/33</td>
+            <td class="num">21.2%</td>
+            <td class="num">7/33</td></tr></tbody></table>
+        </div>
+        <div class="table-foot">Citation rate = share of responses where a source URL from that
+          institution's domain was cited. SMC row highlighted.</div>
+      </div>
+    </div>
+
+    <p class="section-label">Per prompt resolution</p>
+    <div class="table-card">
+      <div class="table-scroll">
+      <table><thead><tr><th>Prompt</th><th>Tier</th><th>Surface</th>
+        <th class="num">SMC</th><th class="num">SCC</th><th class="num">USC Upstate</th></tr></thead>
+        <tbody>
+          <tr class=""><td>brand_bams</td><td>branded</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>brand_online</td><td>branded</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>brand_scholarship</td><td>branded</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>brand_transfer</td><td>branded</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>cmp_converse</td><td>comparison</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>cmp_scc</td><td>comparison</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">3/3</td>
+            <td class="num">3/3</td></tr>
+          <tr class=""><td>cmp_upstate</td><td>comparison</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">3/3</td></tr>
+          <tr class=""><td>cmp_wofford</td><td>comparison</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>unb_firstgen</td><td>unbranded_rewritten</td><td>chatgpt</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class="dim"><td>unb_scholarship</td><td>unbranded_rewritten</td><td>chatgpt</td>
+            <td class="num pct-zero">0/3</td>
+            <td class="num">2/3</td>
+            <td class="num">3/3</td></tr>
+          <tr class="dim"><td>unb_transfer_online</td><td>unbranded_rewritten</td><td>chatgpt</td>
+            <td class="num pct-zero">0/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>brand_bams</td><td>branded</td><td>gemini</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>brand_online</td><td>branded</td><td>gemini</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>brand_scholarship</td><td>branded</td><td>gemini</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>brand_transfer</td><td>branded</td><td>gemini</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>cmp_scc</td><td>comparison</td><td>gemini</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">3/3</td>
+            <td class="num">3/3</td></tr>
+          <tr class=""><td>cmp_upstate</td><td>comparison</td><td>gemini</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">3/3</td></tr>
+          <tr class=""><td>cmp_wofford</td><td>comparison</td><td>gemini</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class=""><td>unb_firstgen</td><td>unbranded_rewritten</td><td>gemini</td>
+            <td class="num pct-high">3/3</td>
+            <td class="num">0/3</td>
+            <td class="num">1/3</td></tr>
+          <tr class=""><td>cmp_converse</td><td>comparison</td><td>gemini</td>
+            <td class="num pct-mid">2/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr>
+          <tr class="dim"><td>unb_scholarship</td><td>unbranded_rewritten</td><td>gemini</td>
+            <td class="num pct-zero">0/3</td>
+            <td class="num">3/3</td>
+            <td class="num">3/3</td></tr>
+          <tr class="dim"><td>unb_transfer_online</td><td>unbranded_rewritten</td><td>gemini</td>
+            <td class="num pct-zero">0/3</td>
+            <td class="num">0/3</td>
+            <td class="num">0/3</td></tr></tbody></table>
+      </div>
+      <div class="table-foot">Counts are named-in-N-samples. Greyed rows scored zero on every sample.</div>
+    </div>
+
+    <p class="section-label">Trend</p>
+    <div class="chart-block">
+      <div class="chart-card">
+        <div class="chart-head">
+          <div><div class="chart-title">SMC mention rate over time</div>
+            <div class="chart-sub">One point per collection run &mdash; the line matters more than any reading</div></div>
+        </div>
+        <div class="chart-wrap"><canvas id="histChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="actions-row">
+      <div class="action-box green">
+        <div class="al">What is working</div>
+        <div class="ab">Branded and comparison prompts surface SMC almost every time. The Full
+          Tuition Scholarship page and the academic catalog PDF are doing real work.</div>
+      </div>
+      <div class="action-box amber">
+        <div class="al">The one gap</div>
+        <div class="ab">Unbranded scholarship prompts &mdash; where a student never types
+          "Spartanburg Methodist" &mdash; are where competitors take the answer outright.</div>
+      </div>
+      <div class="action-box blue">
+        <div class="al">Method</div>
+        <div class="ab">Fixed prompt set &times; repeated samples per prompt per surface. Entity
+          matching on answer prose and citation hosts. Raw responses retained for re-scoring.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="t2">
+    <p class="section-label">Who takes the answer when SMC is absent</p>
+    <div class="info-bar">Of 66 scored responses, how often each entity appears in a response
+      where SMC does <strong>not</strong> appear. This is the set of institutions absorbing the
+      traffic we are not getting.</div>
+    <div class="chart-block">
+      <div class="chart-card">
+        <div class="chart-head">
+          <div><div class="chart-title">Top term thieves
+            <span class="src src-d4s">DataForSEO</span></div>
+            <div class="chart-sub">Count of SMC-absent responses naming each institution</div></div>
+        </div>
+        <div class="chart-wrap"><canvas id="thiefChart"></canvas></div>
+      </div>
+      <div class="table-card attached">
+        <div class="table-scroll">
+        <table><thead><tr><th>Entity</th><th></th><th class="num">Theft count</th>
+          <th class="num">Theft rate</th></tr></thead>
+          <tbody>
+          <tr><td>Clemson University</td>
+            <td><span class="bar" style="width:36.4%"></span></td>
+            <td class="num">6/66</td>
+            <td class="num pct-low">9.1%</td></tr>
+          <tr><td>USC Upstate</td>
+            <td><span class="bar" style="width:36.4%"></span></td>
+            <td class="num">6/66</td>
+            <td class="num pct-low">9.1%</td></tr>
+          <tr><td>Furman University</td>
+            <td><span class="bar" style="width:30.4%"></span></td>
+            <td class="num">5/66</td>
+            <td class="num pct-low">7.6%</td></tr>
+          <tr><td>Spartanburg Community College</td>
+            <td><span class="bar" style="width:30.4%"></span></td>
+            <td class="num">5/66</td>
+            <td class="num pct-low">7.6%</td></tr>
+          <tr><td>Limestone University</td>
+            <td><span class="bar" style="width:24.4%"></span></td>
+            <td class="num">4/66</td>
+            <td class="num pct-low">6.1%</td></tr>
+          <tr><td>Newberry College</td>
+            <td><span class="bar" style="width:24.4%"></span></td>
+            <td class="num">4/66</td>
+            <td class="num pct-low">6.1%</td></tr>
+          <tr><td>North Greenville University</td>
+            <td><span class="bar" style="width:24.4%"></span></td>
+            <td class="num">4/66</td>
+            <td class="num pct-low">6.1%</td></tr>
+          <tr><td>Wofford College</td>
+            <td><span class="bar" style="width:24.4%"></span></td>
+            <td class="num">4/66</td>
+            <td class="num pct-low">6.1%</td></tr>
+          <tr><td>Anderson University</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr>
+          <tr><td>Greenville Technical College</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr>
+          <tr><td>Piedmont Technical College</td>
+            <td><span class="bar" style="width:6.0%"></span></td>
+            <td class="num">1/66</td>
+            <td class="num pct-low">1.5%</td></tr>
+          <tr><td>Converse University</td>
+            <td><span class="bar" style="width:0.0%"></span></td>
+            <td class="num">0/66</td>
+            <td class="num pct-zero">0.0%</td></tr>
+          <tr><td>Presbyterian College</td>
+            <td><span class="bar" style="width:0.0%"></span></td>
+            <td class="num">0/66</td>
+            <td class="num pct-zero">0.0%</td></tr></tbody></table>
+        </div>
+        <div class="table-foot">Theft rate = share of SMC-absent responses naming that entity.</div>
+      </div>
+    </div>
+
+    <p class="section-label">Untracked domains in SMC-absent answers</p>
+    <div class="table-card">
+      <div class="table-scroll">
+      <table><thead><tr><th>Domain</th><th></th><th class="num">Appearances</th>
+        <th class="num">Rate</th></tr></thead>
+        <tbody>
+          <tr><td>columbiasc.edu</td>
+            <td><span class="bar" style="width:96.8%"></span></td>
+            <td class="num">16/66</td>
+            <td class="num pct-low">24.2%</td></tr>
+          <tr><td>che.sc.gov</td>
+            <td><span class="bar" style="width:84.8%"></span></td>
+            <td class="num">14/66</td>
+            <td class="num pct-low">21.2%</td></tr>
+          <tr><td>coker.edu</td>
+            <td><span class="bar" style="width:66.8%"></span></td>
+            <td class="num">11/66</td>
+            <td class="num pct-low">16.7%</td></tr>
+          <tr><td>bju.edu</td>
+            <td><span class="bar" style="width:60.8%"></span></td>
+            <td class="num">10/66</td>
+            <td class="num pct-low">15.2%</td></tr>
+          <tr><td>palmettocollege.com</td>
+            <td><span class="bar" style="width:42.4%"></span></td>
+            <td class="num">7/66</td>
+            <td class="num pct-low">10.6%</td></tr>
+          <tr><td>dowhatmatters.columbiasc.edu</td>
+            <td><span class="bar" style="width:36.4%"></span></td>
+            <td class="num">6/66</td>
+            <td class="num pct-low">9.1%</td></tr>
+          <tr><td>coastal.edu</td>
+            <td><span class="bar" style="width:30.4%"></span></td>
+            <td class="num">5/66</td>
+            <td class="num pct-low">7.6%</td></tr>
+          <tr><td>charlestonsouthern.edu</td>
+            <td><span class="bar" style="width:30.4%"></span></td>
+            <td class="num">5/66</td>
+            <td class="num pct-low">7.6%</td></tr>
+          <tr><td>affordablecollegesonline.org</td>
+            <td><span class="bar" style="width:30.4%"></span></td>
+            <td class="num">5/66</td>
+            <td class="num pct-low">7.6%</td></tr>
+          <tr><td>ed.sc.gov</td>
+            <td><span class="bar" style="width:24.4%"></span></td>
+            <td class="num">4/66</td>
+            <td class="num pct-low">6.1%</td></tr>
+          <tr><td>newlane.edu</td>
+            <td><span class="bar" style="width:24.4%"></span></td>
+            <td class="num">4/66</td>
+            <td class="num pct-low">6.1%</td></tr>
+          <tr><td>columbiasouthern.edu</td>
+            <td><span class="bar" style="width:24.4%"></span></td>
+            <td class="num">4/66</td>
+            <td class="num pct-low">6.1%</td></tr>
+          <tr><td>uopeople.edu</td>
+            <td><span class="bar" style="width:24.4%"></span></td>
+            <td class="num">4/66</td>
+            <td class="num pct-low">6.1%</td></tr>
+          <tr><td>lander.edu</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr>
+          <tr><td>scstatehouse.gov</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr>
+          <tr><td>degreecompletion.com</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr>
+          <tr><td>ccu.edu</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr>
+          <tr><td>scicu.org</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr>
+          <tr><td>scstudentloan.org</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr>
+          <tr><td>research.com</td>
+            <td><span class="bar" style="width:18.0%"></span></td>
+            <td class="num">3/66</td>
+            <td class="num pct-low">4.5%</td></tr></tbody></table>
+      </div>
+      <div class="table-foot">Sources cited in SMC-absent answers, excluding known aggregators and
+        directories. A domain recurring here is a real competitor not yet on the tracked list.</div>
+    </div>
+  </div>
+
+  <p class="section-label">Citation landscape</p>
+  <div class="table-card">
+    <div class="table-scroll">
+    <table><thead><tr><th>Domain</th><th class="num">Citations</th>
+      <th class="num">Share</th></tr></thead>
+      <tbody>
+          <tr><td>smcsc.edu</td><td class="num">398</td>
+            <td class="num">24.9%</td></tr>
+          <tr><td>sccsc.edu</td><td class="num">108</td>
+            <td class="num">6.8%</td></tr>
+          <tr><td>wofford.edu</td><td class="num">91</td>
+            <td class="num">5.7%</td></tr>
+          <tr><td>uscupstate.edu</td><td class="num">58</td>
+            <td class="num">3.6%</td></tr>
+          <tr><td>converse.edu</td><td class="num">50</td>
+            <td class="num">3.1%</td></tr>
+          <tr><td>makebigmoves.smcsc.edu</td><td class="num">44</td>
+            <td class="num">2.8%</td></tr>
+          <tr><td>connect.smcsc.edu</td><td class="num">43</td>
+            <td class="num">2.7%</td></tr>
+          <tr><td>online.uscupstate.edu</td><td class="num">40</td>
+            <td class="num">2.5%</td></tr>
+          <tr><td>che.sc.gov</td><td class="num">34</td>
+            <td class="num">2.1%</td></tr>
+          <tr><td>library.smcsc.edu</td><td class="num">30</td>
+            <td class="num">1.9%</td></tr>
+          <tr><td>commonapp.org</td><td class="num">27</td>
+            <td class="num">1.7%</td></tr>
+          <tr><td>collegetuitioncompare.com</td><td class="num">26</td>
+            <td class="num">1.6%</td></tr>
+          <tr><td>clemson.edu</td><td class="num">25</td>
+            <td class="num">1.6%</td></tr>
+          <tr><td>online.smcsc.edu</td><td class="num">23</td>
+            <td class="num">1.4%</td></tr>
+          <tr><td>collegesimply.com</td><td class="num">21</td>
+            <td class="num">1.3%</td></tr>
+          <tr><td>sctuitiongrants.org</td><td class="num">18</td>
+            <td class="num">1.1%</td></tr>
+          <tr><td>methodist.edu</td><td class="num">16</td>
+            <td class="num">1.0%</td></tr>
+          <tr><td>columbiasc.edu</td><td class="num">16</td>
+            <td class="num">1.0%</td></tr>
+          <tr><td>ngu.edu</td><td class="num">16</td>
+            <td class="num">1.0%</td></tr>
+          <tr><td>catalog.wofford.edu</td><td class="num">15</td>
+            <td class="num">0.9%</td></tr></tbody></table>
+    </div>
+    <div class="table-foot">1600 total citations across the run &mdash;
+      the editorial target list: these are the pages the models are reading.</div>
+  </div>
+
+  <p class="section-label">SMC pages being cited</p>
+  <div class="table-card">
+    <div class="table-scroll">
+    <table><thead><tr><th>Path</th><th class="num">Citations</th></tr></thead>
+      <tbody>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/</td>
+            <td class="num">38</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/wp-content/uploads/SMC_Academic-Catalog-2024-2025.pdf</td>
+            <td class="num">36</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/transfer-credit-information/</td>
+            <td class="num">29</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/wp-content/uploads/SMC_Academic-Catalog-2024-20254.pdf</td>
+            <td class="num">27</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/admissions/financial-aid/full-tuition-scholarship/</td>
+            <td class="num">20</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/academics/spartanburg-methodist-college-online-degree-programs/faqs/</td>
+            <td class="num">20</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/academics/spartanburg-methodist-college-online-degree-programs/online-it-concentration/</td>
+            <td class="num">19</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/wp-content/uploads/SMC_Academic-Catalog-2024-2025-5.pdf</td>
+            <td class="num">15</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/wp-content/uploads/SMC_Academic-Catalog-2023-2024.pdf</td>
+            <td class="num">15</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/wp-content/uploads/SMC_Academic-Catalog-2022-2023-9.pdf</td>
+            <td class="num">14</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/about/</td>
+            <td class="num">14</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/events/</td>
+            <td class="num">12</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/on-campus</td>
+            <td class="num">12</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/academics/degrees-programs/</td>
+            <td class="num">11</td></tr>
+          <tr><td style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">/wp-content/uploads/SMC_Academic-Catalog-2022-2023-1-3.pdf</td>
+            <td class="num">11</td></tr></tbody></table>
+    </div>
+    <div class="table-foot">Paths on smcsc.edu that AI answers are sourcing. These are working
+      &mdash; find more like them.</div>
+  </div>
+</main>
+
+<footer>
+  Generated 2026-10-28T01:47:05 UTC &middot; run 2026-10-27T18:34:04 UTC<br>
+  Threshold discipline: every figure is "named in X of N responses under this configuration."<br>
+  Two vendors measuring the same brand will disagree and neither is lying &mdash; different
+  surfaces, prompts, and sample sizes.
+</footer>
+<script>
+const gridColor = '#f1efe8';
+new Chart(document.getElementById('h2hChart'),{
+  type:'bar',
+  data:{"labels": ["chatgpt", "gemini"], "datasets": [{"label": "Spartanburg Methodist College", "data": [81.8, 78.8], "backgroundColor": "#2a78d6", "borderRadius": 4}, {"label": "Spartanburg Community College", "data": [15.2, 18.2], "backgroundColor": "#eb6834", "borderRadius": 4}, {"label": "USC Upstate", "data": [27.3, 30.3], "backgroundColor": "#eda100", "borderRadius": 4}]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:12,boxHeight:12,usePointStyle:true,
+      pointStyle:'rect',font:{size:11,family:'-apple-system,BlinkMacSystemFont,sans-serif'}}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y.toFixed(1)+'%'}}},
+    scales:{y:{beginAtZero:true,max:100,ticks:{font:{size:11},callback:v=>v+'%'},
+        grid:{color:gridColor},border:{display:false}},
+      x:{grid:{display:false},ticks:{font:{size:11}}}}}
+});
+new Chart(document.getElementById('histChart'),{
+  type:'line',
+  data:{"labels": ["2026-10-27"], "datasets": [{"label": "chatgpt", "data": [81.8], "borderColor": "#2a78d6", "backgroundColor": "#2a78d6", "tension": 0.3, "pointRadius": 3}, {"label": "gemini", "data": [69.7], "borderColor": "#eda100", "backgroundColor": "#eda100", "tension": 0.3, "pointRadius": 3}]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:12,usePointStyle:true,pointStyle:'line',
+      font:{size:11}}}},
+    scales:{y:{beginAtZero:true,max:100,ticks:{font:{size:11},callback:v=>v+'%'},
+        grid:{color:gridColor},border:{display:false}},
+      x:{grid:{display:false},ticks:{font:{size:11}}}}}
+});
+const thief = {"labels": ["Clemson University", "USC Upstate", "Furman University", "Spartanburg Community College", "Limestone University", "Newberry College", "North Greenville University", "Wofford College", "Anderson University", "Greenville Technical College"], "data": [6, 6, 5, 5, 4, 4, 4, 4, 3, 3]};
+new Chart(document.getElementById('thiefChart'),{
+  type:'bar',
+  data:{labels:thief.labels,datasets:[{label:'SMC-absent responses naming this entity',
+    data:thief.data,backgroundColor:'#eb6834',borderRadius:4}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{x:{beginAtZero:true,title:{display:true,text:'count',font:{size:11}},
+        grid:{color:gridColor},border:{display:false},ticks:{font:{size:11}}},
+      y:{grid:{display:false},ticks:{font:{size:11}}}}}
+});
+document.querySelectorAll('.tab').forEach(t=>{
+  t.onclick=()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    document.getElementById(t.dataset.tab).classList.add('on');
+  };
+});
+</script>
+</body></html>
