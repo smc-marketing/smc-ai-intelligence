@@ -104,805 +104,266 @@ footer { text-align: center; font-size: 11px; color: #888780; padding: 2rem 1rem
   .rings { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
+<style>
+/* --- SE Ranking palette (Mike, Nov 2026) ------------------------------- */
+:root {
+  --sr-blue:   #2F80ED;
+  --sr-orange: #F2994A;
+  --sr-yellow: #F2C94C;
+  --sr-green:  #34A853;
+  --sr-red:    #DC2626;
+  --sr-ink:    #111827;
+  --sr-ink-2:  #6B7280;
+  --sr-line:   #E5E7EB;
+  --sr-canvas: #F7F8FA;
+  --sr-tint-blue:   #EFF6FF;
+  --sr-tint-green:  #ECFDF3;
+  --sr-tint-peach:  #FFF4E5;
+  --sr-tint-red:    #FEF2F2;
+}
+body { background: var(--sr-canvas); color: var(--sr-ink); }
+.card, .chart-card, .table-card { background:#fff; border-color: var(--sr-line); }
+.section-label { color: var(--sr-ink-2); }
+.wow-val { color: var(--sr-ink); }
+.wow-engine { color: var(--sr-ink-2); }
+.wow-sub { color: var(--sr-ink-2); }
+thead th { color: var(--sr-ink-2); border-bottom-color: var(--sr-line); }
+tbody td { border-bottom-color: var(--sr-line); }
+.chg-up { color: #2E7D32; }
+.chg-dn { color: #C2410C; }
+.chg-flat { color: var(--sr-ink-2); }
+.badge, .badge-moz, .badge-src, .badge-sys {
+  background: var(--sr-tint-blue); color: #1D4ED8; border: none;
+}
+footer { color: var(--sr-ink-2); border-top-color: var(--sr-line); }
+
+/* --- narrative insight box (left accent bar, tinted, SE Ranking style) -- */
+.insight {
+  background: var(--sr-tint-blue);
+  border-left: 4px solid var(--sr-blue);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 0 0 1.5rem 0;
+}
+.insight p { margin: 0 0 8px 0; font-size: 13.5px; line-height: 1.65; color: #374151; }
+.insight p:last-child { margin-bottom: 0; }
+.insight strong { color: var(--sr-ink); }
+</style>
+
 </head>
 <body>
 
 <header>
   <div>
     <h1>SMC AI Intelligence Report</h1>
-    <p>smcsc.edu &middot; Week of Nov 2, 2026 &middot; Data through Nov 1 &middot; Sources: SE Ranking + DataForSEO + Visby.ai + GA4 + Google Ads</p>
+    <p>smcsc.edu &middot; Week of Nov 9, 2026 &middot; 74 tracked questions
+    &middot; 222 AI answers reviewed</p>
   </div>
   <div class="badges">
-    <span class="badge badge-moz">Moz Pro</span>
-    <span class="badge badge-ser">SE Ranking</span>
-    <span class="badge badge-d4s">DataForSEO</span>
-    <span class="badge badge-visby">Visby.ai</span>
-    <span class="badge badge-ga4">GA4</span>
-    <a href="ai-visibility.html" style="text-decoration:none" title="Prompt-level share of voice: SMC vs SCC vs USC Upstate"><span class="badge badge-ser">Share of Voice Report &rarr;</span></a>
+    <span class="badge badge-moz">Moz AI Visibility</span>
+    <span class="badge badge-src">ChatGPT</span><span class="badge badge-src">Gemini</span><span class="badge badge-src">Google AI Mode</span>
+    <span class="badge badge-sys">3 engines</span>
   </div>
 </header>
 
 <main>
 
-  <!-- ===================== Moz AI Visibility ===================== -->
-  <p class="section-label">Brand visibility by engine <span class="src src-moz">Moz Pro</span></p>
-  <div class="note-bar"><strong>Moz is the only source here that runs all four engines on one identical 74-prompt set, which is why it carries the week-over-week read.</strong> Three engines are dated Nov 1, 2026. Perplexity is frozen at Oct 4 because Moz paused its collections on Oct 4 and restarts Nov 8. DataForSEO runs pooled samples on ChatGPT and Gemini further down; where the two disagree on absolute level the prompt sets differ, and where they agree on direction that is the real signal.</div>
+<section>
+  <p class="section-label">Where we stand</p>
+  
+    <div class="wow-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="card"><div class="wow-engine">Named SMC</div>
+        <div class="wow-val">50.9%</div>
+        <div class="wow-sub">113 of 222 answers</div></div>
+      <div class="card"><div class="wow-engine">Questions we appear on</div>
+        <div class="wow-val">44 / 74</div>
+        <div class="wow-sub">named by at least one engine</div></div>
+      <div class="card"><div class="wow-engine">Links to smcsc.edu</div>
+        <div class="wow-val">420</div>
+        <div class="wow-sub">across all answers</div></div>
+      <div class="card"><div class="wow-engine">Our questions we never win</div>
+        <div class="wow-val">14</div>
+        <div class="wow-sub">the working list &middot; 16 further questions are competitor-branded</div></div>
+    </div><div class="insight"><p class="lede">SMC is named on <strong>44 of 74 questions</strong> in at least one engine, but the engines disagree: Gemini 59.5%, ChatGPT 50.0%, Google AI Mode 43.2%. <strong>30</strong> questions are missed by every engine, but only <strong>14</strong> of those are ours to win &mdash; the other 16 name a competitor directly, so SMC appearing there would be the surprise. The 14 are the working list: no amount of engine-specific tuning fixes them. Worth noting: every question any engine names SMC on is also named by Gemini &mdash; Gemini's 44 questions are the full set, so it is the most generous of the three.</p><p class="lede">But being <em>named</em> and being <em>linked</em> are different things. ChatGPT links to smcsc.edu 213 times; Gemini links to it <strong>6</strong> times. (Google AI Mode sits at 201.) A mention without a link sends you no traffic.</p></div>
+</section>
 
-  <div class="wow-grid">
-    <div class="card">
-      <div class="wow-engine">Gemini &middot; Nov 1</div>
-      <div class="wow-val">59.5%</div>
-      <div class="wup">&#9650; 6.8 pts vs Oct 26 (52.7%)</div>
-      <span class="rank rank-1">1st of 3</span>
-    </div>
-    <div class="card">
-      <div class="wow-engine">ChatGPT &middot; Nov 1</div>
-      <div class="wow-val">48.6%</div>
-      <div class="wup">&#9650; 4.0 pts vs Oct 26 (44.6%)</div>
-      <span class="rank rank-1">1st of 3</span>
-    </div>
-    <div class="card">
-      <div class="wow-engine">Google AI Mode &middot; Nov 1</div>
-      <div class="wow-val">41.9%</div>
-      <div class="wdn">&#9660; 5.4 pts vs Oct 26 (47.3%)</div>
-      <span class="rank rank-2">2nd of 3 &middot; SCC 44.6%</span>
-    </div>
-    <div class="card">
-      <div class="wow-engine">Perplexity &middot; Oct 4</div>
-      <div class="wow-val">33.8%</div>
-      <div class="wflat">Frozen since Oct 4</div>
-      <span class="rank rank-stale">Collection paused</span>
-    </div>
-  </div>
+<section>
+  <p class="section-label">Engine by engine</p>
+  <p class="section-note">Change arrows compare against 2026-11-01.</p>
+  <div class="table-card"><div class="table-scroll">
+  <table>
+    <thead><tr>
+      <th>Engine</th><th>Named SMC</th><th>Mention rate</th><th>Questions change</th>
+      <th>Cited first</th><th>Links to smcsc.edu</th><th>Links change</th><th>Answers with a link</th>
+    </tr></thead>
+    <tbody><tr>
+          <td><span class="dot" style="background:#2F80ED"></span>ChatGPT</td>
+          <td>37 of 74</td>
+          <td><strong>50.0%</strong></td>
+          <td><span class="chg-up">&#9650; 1</span></td>
+          <td>24</td>
+          <td>213</td><td><span class="chg-dn">-33</span></td>
+          <td>64</td>
+        </tr><tr>
+          <td><span class="dot" style="background:#F2C94C"></span>Gemini</td>
+          <td>44 of 74</td>
+          <td><strong>59.5%</strong></td>
+          <td><span class="chg-flat">no change</span></td>
+          <td>25</td>
+          <td>6</td><td><span class="chg-dn">-1</span></td>
+          <td>5</td>
+        </tr><tr>
+          <td><span class="dot" style="background:#F2994A"></span>Google AI Mode</td>
+          <td>32 of 74</td>
+          <td><strong>43.2%</strong></td>
+          <td><span class="chg-up">&#9650; 1</span></td>
+          <td>25</td>
+          <td>201</td><td><span class="chg-up">+24</span></td>
+          <td>73</td>
+        </tr></tbody>
+  </table>
+  </div></div>
+</section>
 
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">SMC mention rate &mdash; every engine Moz tracks <span class="src src-moz">Moz Pro</span></div>
-          <div class="chart-sub">% of 74 tracked prompts where SMC is mentioned. Three engines dated Nov 1, 2026; Perplexity dated Oct 4, 2026.</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#185FA5;"></span>Nov 1</div>
-          <div class="li"><span class="ld" style="background:#8FB4DA;"></span>Oct 26</div>
-          <div class="li"><span class="ld" style="background:#D3D1C7;"></span>Oct 4 (Perplexity)</div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <canvas id="mozChart" role="img" aria-label="SMC mention rate by engine. Gemini 59.5 on Nov 1 versus 52.7 on Oct 26. ChatGPT 48.6 versus 44.6. Google AI Mode 41.9 versus 47.3. Perplexity 33.8, unchanged since Oct 4.">SMC mention rate by engine across the four Moz surfaces.</canvas>
-      </div>
+<section>
+  <p class="section-label">The picture</p>
+  <div class="chart-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:1.5rem">
+    <div class="chart-card" style="border-radius:10px;padding:1.1rem 1.25rem">
+      <div class="chart-title">SMC named, by engine <span class="src">of 74 questions</span></div>
+      <div style="height:220px;margin-top:10px"><canvas id="cMentions"></canvas></div>
     </div>
-    <div class="actions-row">
-      <div class="action-box green">
-        <div class="al">Ranks 1st on three engines, 2nd on AI Mode by two prompts</div>
-        <div class="ab">Gemini 59.5% and ChatGPT 48.6%, both ahead of SCC. On Google AI Mode SMC is at 41.9% against SCC's 44.6% &mdash; a two-prompt deficit &mdash; but when SMC does appear it is mentioned far earlier: 8.1% of the way into the answer versus SCC's 23.4%.</div>
-      </div>
-      <div class="action-box amber">
-        <div class="al">AI Mode is the only engine moving the wrong way</div>
-        <div class="ab">47.3% down to 41.9%, four prompts on a 74-prompt set. At one response per prompt each prompt is worth about 1.35 points, so this is real but small. ChatGPT gained four prompts and Gemini five, so the blended picture improved.</div>
-      </div>
+    <div class="chart-card" style="border-radius:10px;padding:1.1rem 1.25rem">
+      <div class="chart-title">Links to smcsc.edu, by engine</div>
+      <div style="height:220px;margin-top:10px"><canvas id="cCites"></canvas></div>
     </div>
-    <div class="table-card attached" style="border-radius:0;border-top:none;">
-      <div class="table-scroll">
-      <table>
-        <thead>
-          <tr><th>Engine</th><th class="num">SMC mentions</th><th class="num">SCC mentions</th><th class="num">USC Upstate mentions</th><th class="num">SMC avg position</th><th class="num">No brand named</th></tr>
-        </thead>
-        <tbody>
-          <tr class="highlight"><td>Gemini &middot; Nov 1</td><td class="num pct-high">59.5%</td><td class="num">44.6%</td><td class="num">27.0%</td><td class="num pct-high">18.0%</td><td class="num pct-low">24.3%</td></tr>
-          <tr class="highlight"><td>ChatGPT &middot; Nov 1</td><td class="num pct-high">48.6%</td><td class="num pct-mid">41.9%</td><td class="num">21.6%</td><td class="num">21.8%</td><td class="num pct-low">25.7%</td></tr>
-          <tr><td>Google AI Mode &middot; Nov 1</td><td class="num pct-mid">41.9%</td><td class="num pct-mid">44.6%</td><td class="num">24.3%</td><td class="num pct-high">8.1%</td><td class="num pct-low">25.7%</td></tr>
-          <tr><td>Perplexity &middot; Oct 4</td><td class="num pct-mid">33.8%</td><td class="num">28.4%</td><td class="num pct-low">4.1%</td><td class="num">25.7%</td><td class="num pct-low">44.6%</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <div class="table-foot">Nov 1 for the first three, Oct 4 for Perplexity. Average position is how far into the response the school is first mentioned; lower is better. On AI Mode SMC is named 41.9% of the time but is the earliest-mentioned school when it appears, despite SCC's higher rate.</div>
+    <div class="chart-card" style="border-radius:10px;padding:1.1rem 1.25rem">
+      <div class="chart-title">Where the 30 misses come from</div>
+      <div style="height:220px;margin-top:10px"><canvas id="cMiss"></canvas></div>
     </div>
-    <div class="table-card">
-      <div class="table-scroll">
-      <table>
-        <thead>
-          <tr><th>Engine</th><th class="num">SMC mentioned first</th><th class="num">SCC mentioned first</th><th class="num">USC Upstate mentioned first</th><th>Most-mentioned SMC term</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Gemini</td><td class="num pct-high">36.5%</td><td class="num">23.0%</td><td class="num">16.2%</td><td>Spartanburg Methodist College</td></tr>
-          <tr><td>ChatGPT</td><td class="num pct-high">33.8%</td><td class="num">29.7%</td><td class="num">10.8%</td><td>Spartanburg Methodist College</td></tr>
-          <tr><td>Google AI Mode</td><td class="num pct-high">35.1%</td><td class="num">28.4%</td><td class="num">10.8%</td><td>"SMC" &mdash; the bare abbreviation</td></tr>
-          <tr><td>Perplexity (Oct 4)</td><td class="num pct-mid">29.7%</td><td class="num">24.3%</td><td class="num pct-low">1.4%</td><td>Spartanburg Methodist College</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <div class="table-foot">SMC is mentioned first more often than either rival on all four engines. On AI Mode the single term driving most mentions is the bare abbreviation "SMC", the same ambiguity flagged in the citation section &mdash; on this local prompt set the engines resolve it correctly, but the abbreviation is doing the work.</div>
+    <div class="chart-card" style="border-radius:10px;padding:1.1rem 1.25rem">
+      <div class="chart-title">Competitor presence in AI answers</div>
+      <div style="height:220px;margin-top:10px"><canvas id="cComp"></canvas></div>
     </div>
   </div>
+</section>
 
-  <!-- ===================== Open prompts ===================== -->
-  <p class="section-label">Which prompts we actually miss <span class="src src-moz">Moz Pro</span></p>
-  <div class="info-bar"><strong>The 74-prompt set splits cleanly, and the split explains almost every number in this report.</strong> 23 prompts name SMC; SMC is named in all 23 on all three engines. Of the 51 that name no school, 22 name a competitor or ask about associate degrees and score zero on every engine, while 29 ask a bachelor's-or-general question in Spartanburg and score 63.8% on average. The losses are concentrated in prompt territory, not spread evenly.</div>
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">SMC mention rate on open prompts, by prompt territory &mdash; Nov 1</div>
-          <div class="chart-sub">Each group is scored across all three engines: prompts &times; engines &divide; named. "Associate degree" and the competitor-named groups are structurally unwinnable for SMC.</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#185FA5;"></span>Named in %</div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <canvas id="terrChart" role="img" aria-label="SMC mention rate by prompt territory. Bachelor and general Spartanburg questions 63.8 percent. Associate degree questions 0 percent. SCC-named prompts 0 percent. Wofford-named prompts 0 percent.">SMC mention rate by prompt territory.</canvas>
-      </div>
-    </div>
-    <div class="table-card attached" style="border-radius:0;border-top:none;">
-      <div class="table-scroll">
-      <table>
-        <thead>
-          <tr><th>Prompt territory</th><th class="num">Prompts</th><th class="num">SMC named</th><th>Verdict</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Prompts that name SMC</td><td class="num">23</td><td class="num pct-high">69 of 69 (100%)</td><td>Health check. Nothing to win here.</td></tr>
-          <tr><td>Spartanburg bachelor's and general questions</td><td class="num">29</td><td class="num pct-high">55 of 87 (63.8%)</td><td>Winnable, and mostly won. This is where to defend.</td></tr>
-          <tr><td>Associate-degree questions</td><td class="num">12</td><td class="num pct-zero">0 of 36 (0%)</td><td>Structurally out of scope &mdash; SMC does not offer associate degrees as the primary product.</td></tr>
-          <tr><td>Prompts naming SCC</td><td class="num">10</td><td class="num pct-zero">0 of 30 (0%)</td><td>By definition. Tracking these measures SCC, not SMC.</td></tr>
-          <tr><td>Prompts naming Wofford (two misspelled "Wooford")</td><td class="num">4</td><td class="num pct-zero">0 of 12 (0%)</td><td>By definition, and two of the four contain a typo in the prompt itself.</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <div class="table-foot">Counts from the Nov 1 Moz export across the 74 tracked prompts. The 22 zero-scoring associate and competitor-named prompts are 43% of the prompt set and drag the headline rate down by roughly 30 points on every engine.</div>
-    </div>
-    <div class="actions-row">
-      <div class="action-box amber">
-        <div class="al">22 of 74 prompts can never name SMC</div>
-        <div class="ab">Twelve ask about associate degrees and ten name SCC or Wofford outright. They are a third of the tracked set and score zero by construction. Keeping them inflates the apparent gap and hides real movement; the honest headline is 63.8% on winnable open prompts, not 41-59% blended.</div>
-      </div>
-      <div class="action-box green">
-        <div class="al">On winnable open prompts SMC is named 63.8% of the time</div>
-        <div class="ab">The prompts SMC misses among those 29 are specific and fixable: "how long does it take to complete a bachelor's degree", "what documents are needed for online college applications", and "what are the admission requirements for online colleges here" score zero on all three engines. Those are three pages, not a strategy.</div>
-      </div>
-    </div>
-  </div>
+<section>
+  <p class="section-label">The 14 questions we should win and don't</p>
+  <p class="section-note">Same questions missing in every engine. Each one is a page we either
+  don't have or haven't made answerable. The Wofford questions are in the tracked set because
+  they were part of the original prompt list — we are not expected to appear on them, and they
+  are kept only so the 74-question total stays comparable week to week.</p>
+  <div class="wow-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))"><div class="card">
+          <div class="wow-engine">Associate degrees <span class="rank">10</span></div>
+          <ul style="margin:8px 0 0 0;padding-left:18px;font-size:13px;line-height:1.6;color:#2C2C2A"><li>Are online associate degree programs available?</li><li>Can i transfer credits from an associate degree program?</li><li>How do i apply for an associate degree program?</li><li>How long does it take to complete an associate degree?</li><li>What are the benefits of an associate degree?</li><li>What career options are available with an associate degree?</li><li>What is an associate degree?</li><li>What is the typical cost of an associate degree?</li><li>What majors are available for an associate degree?</li><li>What support services are offered to associate degree students?</li></ul>
+        </div><div class="card">
+          <div class="wow-engine">Online & admissions <span class="rank">4</span></div>
+          <ul style="margin:8px 0 0 0;padding-left:18px;font-size:13px;line-height:1.6;color:#2C2C2A"><li>How long does it take to complete a bachelor's degree?</li><li>What are the admission requirements for online colleges here?</li><li>What documents are needed for online college applications?</li><li>What is the graduation rate for online students in spartanburg?</li></ul>
+        </div></div>
+</section>
 
-  <!-- ===================== Sentiment ===================== -->
-  <p class="section-label">Brand sentiment by engine <span class="src src-moz">Moz Pro</span></p>
-  <div class="info-bar"><strong>All three schools sit in one narrow band, so sentiment is not where this is won or lost.</strong> SMC scores 53 to 57 depending on engine, SCC 54 to 55, USC Upstate 53 to 55, every comparison labelled Mixed at high confidence. The gaps are single points resting on a handful of positive mentions each. Read it as "nothing is broken", not as a strength.</div>
-  <div class="table-card attached">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>Engine</th><th>SMC score</th><th class="num">SMC mentions (pos / neu / neg)</th><th class="num">SCC score</th><th class="num">USC Upstate score</th></tr>
-      </thead>
-      <tbody>
-        <tr class="highlight"><td>Gemini &middot; Nov 1</td><td><span class="sent-mix">57 Mixed</span></td><td class="num">135 (20 / 115 / 0)</td><td class="num pct-mid">55</td><td class="num">53</td></tr>
-        <tr><td>Google AI Mode &middot; Nov 1</td><td><span class="sent-mix">57 Mixed</span></td><td class="num">131 (19 / 111 / 1)</td><td class="num pct-mid">54</td><td class="num">55</td></tr>
-        <tr><td>ChatGPT &middot; Nov 1</td><td><span class="sent-mix">53 Mixed</span></td><td class="num">156 (9 / 147 / 0)</td><td class="num pct-mid">54</td><td class="num pct-high">55</td></tr>
-        <tr><td>Perplexity &middot; Oct 4</td><td><span class="sent-mix">50 Mixed</span></td><td class="num">29 (1 / 27 / 1)</td><td class="num">Not enough data</td><td class="num">Not enough data</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">Mention counts here are brand-term occurrences in response text across the 74 prompts &mdash; they are not the numerator of the mention rate above. On ChatGPT SMC is mentioned more than SCC (156 vs 116) yet scores lower (53 vs 54), because its positive share is thinner: 9 positives out of 156 against SCC's 9 out of 116.</div>
-  </div>
-  <div class="table-card">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>Engine</th><th>Strongest drivers</th><th>Weakest driver</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Gemini</td><td class="pct-high">Supportive campus environment 75 &middot; Career-focused academic programs 75 &middot; Flexible online learning 75</td><td class="pct-low">No negative driver shown</td></tr>
-        <tr><td>Google AI Mode</td><td class="pct-high">Online degree programs 80 &middot; Student support programs 78 &middot; Local career opportunities 75</td><td class="pct-mid">Online learning program comparison 25 (1 mention)</td></tr>
-        <tr><td>ChatGPT</td><td class="pct-high">Financial aid opportunities 100 &middot; Admissions process 75 &middot; Business administration 75</td><td class="pct-low">No negative driver shown</td></tr>
-        <tr><td>Perplexity (Oct 4)</td><td class="pct-high">Community reputation 90 &middot; Financial health ratings 90</td><td class="pct-mid">Program clarity issues 25 (1 mention)</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">Each driver score rests on one to four mentions, so treat individual themes as directional rather than measured. The one pattern worth acting on: "online learning program comparison" and "program clarity" are the only themes scoring negative, and they point at the same weakness the citation and prompt data show.</div>
-  </div>
-
-  <!-- ===================== Citations ===================== -->
-  <p class="section-label">Who AI cites on our prompts <span class="src src-moz">Moz Pro</span></p>
-  <div class="info-bar"><strong>Citation counts are computed from Moz's prompt-response export and reconcile exactly with the dashboard totals, so every figure below comes from raw responses rather than a screen.</strong> 246 citations on ChatGPT, 177 on AI Mode, 7 on Gemini. The Google surfaces cite SMC's own pages; ChatGPT and Gemini largely do not.</div>
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">Total citations and SMC-owned citations per engine &mdash; Nov 1</div>
-          <div class="chart-sub">"Your domain cited" counts every citation Moz attributed to SMC, including subdomains. Note the scale: Gemini cites almost nothing.</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#8FB4DA;"></span>All citations</div>
-          <div class="li"><span class="ld" style="background:#185FA5;"></span>SMC-owned</div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <canvas id="citeChart" role="img" aria-label="Total citations per engine: ChatGPT 246 of which 9 are SMC. AI Mode 177 of which 19 are SMC. Gemini 7 of which 2 are SMC.">Total citations versus SMC-owned citations by engine.</canvas>
-      </div>
-    </div>
-    <div class="table-card attached" style="border-radius:0;border-top:none;">
-      <div class="table-scroll">
-      <table>
-        <thead>
-          <tr><th>Engine</th><th class="num">Total citations</th><th class="num">SMC cited</th><th class="num">SMC share</th><th class="num">Top cited domain</th><th class="num">Top domain count</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>ChatGPT &middot; Nov 1</td><td class="num">246</td><td class="num">9</td><td class="num pct-zero">3.7%</td><td class="num">sccsc.edu</td><td class="num">54</td></tr>
-          <tr class="highlight"><td>Google AI Mode &middot; Nov 1</td><td class="num">177</td><td class="num pct-high">19</td><td class="num pct-high">10.7%</td><td class="num">smcsc.edu</td><td class="num">31</td></tr>
-          <tr><td>Gemini &middot; Nov 1</td><td class="num">7</td><td class="num">2</td><td class="num pct-mid">28.6%</td><td class="num">scsc.edu</td><td class="num">1</td></tr>
-          <tr><td>Perplexity &middot; Oct 4</td><td class="num">85</td><td class="num">7</td><td class="num pct-mid">8.2%</td><td class="num">smc.edu &mdash; not ours</td><td class="num">1</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <div class="table-foot">Nov 1 for the first three, Oct 4 for Perplexity. Unique pages / domains: ChatGPT 183 across 69 domains, AI Mode 133 across 52, Gemini 7 across 6, Perplexity 80 across 47.</div>
-    </div>
-    <div class="actions-row">
-      <div class="action-box amber">
-        <div class="al">ChatGPT cites SCC's domain 54 times and ours 20</div>
-        <div class="ab">Better than 2 to 1 in SCC's favour, on the engine where SMC has the best mention rate. The top domains are sccsc.edu 54, smcsc.edu 20, wofford.edu 16 and SCC's own CMS host 13 &mdash; SCC's content is retrieved under three separate hosts, so its real footprint is larger than the single domain row suggests.</div>
-      </div>
-      <div class="action-box green">
-        <div class="al">On AI Mode we are the most-cited source</div>
-        <div class="ab">smcsc.edu at 31 citations, ahead of SCC at 30, Wofford 12 and USC Upstate 8. Google's AI Mode prefers our pages, which lines up with its 8.1% average position &mdash; the earliest of any school on any engine.</div>
-      </div>
-      <div class="action-box purple">
-        <div class="al">Gemini names us but reads almost nothing</div>
-        <div class="ab">59.5% mention rate, and 7 citations across 74 prompts of which 2 are ours. Gemini is answering from model knowledge rather than retrieval, so a high mention rate there should not be read as our content being trusted or read.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-bar"><strong>Two data stacks, on purpose.</strong> Moz Pro runs one response per prompt on four engines and owns the week-over-week read at the top of this page. DataForSEO runs three samples per prompt on ChatGPT and Gemini, which is what makes the prompt-level rates further down defensible &mdash; a single draw cannot tell movement from variance. Where they disagree on absolute level, the prompt sets differ; where they agree on direction, that is the real signal.</div>
-
-  <div class="good-bar"><strong>SMC names itself in 82.4% of ChatGPT answers and 75.8% of Gemini answers, with full citations attached.</strong> Branded and comparison prompts are at 100% on both engines &mdash; 48 of 48 responses. The brand is not invisible to AI; it is invisible on the three prompts that decide non-branded demand, where SMC is named in 5 of 19 pooled responses.</div>
-
-  <div class="note-bar"><strong>The whole gap is the unbranded tier.</strong> Two prompts returned zero SMC mentions across all 33 samples on both engines: the upstate-SC tuition-free question and the affordable-online-transfer question. Our scholarship and transfer pages are cited into those answers and still do not get named. That is a phrasing problem on the pages, not a crawl problem.</div>
-
-  <div class="info-bar"><strong>Two views of AI visibility remain on the site.</strong> This page and the Share of Voice report measure SMC on prompts we chose about Spartanburg and online bachelors, where SMC competes well. SE Ranking's market-wide section further down counts every AI answer in its keyword database, where SCC's far larger program catalog gives it roughly 18 times SMC's footprint on Google AI Overviews. Both are accurate; they answer different questions.</div>
-
-  <!-- ===================== DataForSEO prompt-level ===================== -->
-  <p class="section-label">SMC mention rate &mdash; week over week, n-pooled <span class="src src-d4s">DataForSEO</span></p>
-  <div class="note-bar" style="margin-bottom:1rem;"><strong>This replaces the Moz headline rate.</strong> Each prompt is asked three times per engine and the answers are pooled, so every figure is "named in k of n" rather than a single draw. 11 prompts &times; 2 engines &times; 3 samples = 66 scored responses, 0 failures. A single-draw number is not comparable with these: on Oct 26 the same 7-prompt set read 71% on one sample and 82% on 33.</div>
-
-  <div class="wow-grid">
-    <div class="card">
-      <div class="wow-engine">ChatGPT</div>
-      <div class="wow-val">78.8%</div>
-      <div class="wdn">&#9660; 3.0 pts vs Oct 27 (81.8%)</div>
-      <span class="rank rank-2">26 of 33 &middot; SCC 21.2%</span>
-    </div>
-    <div class="card">
-      <div class="wow-engine">Gemini</div>
-      <div class="wow-val">78.8%</div>
-      <div class="wup">&#9650; 9.1 pts vs Oct 27 (69.7%)</div>
-      <span class="rank rank-1">26 of 33 &middot; SCC 15.2%</span>
-    </div>
-    <div class="card">
-      <div class="wow-engine">Branded + comparison</div>
-      <div class="wow-val">100%</div>
-      <div class="wflat">48 of 48 responses, both engines</div>
-      <span class="rank rank-1">Health check, not a win</span>
-    </div>
-    <div class="card">
-      <div class="wow-engine">Unbranded prompts</div>
-      <div class="wow-val">13.2%</div>
-      <div class="wdn">5 of 38 &middot; where the growth has to come from</div>
-      <span class="rank rank-2">Two prompts at zero</span>
-    </div>
-  </div>
-
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">SMC mention rate by engine &mdash; Nov 2 vs Oct 27 <span class="src src-d4s">DataForSEO</span></div>
-          <div class="chart-sub">% of 33 pooled responses per engine naming SMC. Same 11 prompts and same method in both runs.</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#185FA5;"></span>Nov 2</div>
-          <div class="li"><span class="ld" style="background:#8FB4DA;"></span>Oct 27</div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <canvas id="trendChart" role="img" aria-label="SMC mention rate by engine. ChatGPT 78.8 on Nov 2 versus 81.8 on Oct 27. Gemini 78.8 on Nov 2 versus 69.7 on Oct 27.">SMC mention rate by engine across two pooled runs.</canvas>
-      </div>
-    </div>
-    <div class="actions-row">
-      <div class="action-box blue">
-        <div class="al">Gemini gained, ChatGPT gave back the same</div>
-        <div class="ab">Gemini went 23 to 26 responses; ChatGPT went 27 to 26. An identical one-response shift in opposite directions, so the blended rate is flat at 78.8%. Do not read the Gemini rise as progress while the unbranded tier sits at 13%.</div>
-      </div>
-      <div class="action-box green">
-        <div class="al">When SMC is named, its pages are cited too</div>
-        <div class="ab">ChatGPT citation rate 78.8% and Gemini 78.8% &mdash; within a single response of the mention rate on both engines. The brand is not being described from model memory; engines are pulling smcsc.edu, 265 ChatGPT and 193 Gemini citations across the week.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== Branded vs open ===================== -->
-  <p class="section-label">Branded vs open prompts <span class="src src-d4s">DataForSEO</span></p>
-  <div class="info-bar"><strong>How to read the headline numbers:</strong> 4 of the 11 prompts name SMC, 4 name a competitor head-to-head, and 3 name no school at all. SMC is named in every branded and every comparison response and in almost none of the open ones. The open tier is the only place this metric can move up, and it is what a prospective student actually types.</div>
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">SMC mention rate on open prompts &mdash; Nov 2 vs Oct 27</div>
-          <div class="chart-sub">3 prompts that name neither SMC nor a competitor, 3 samples each. Branded and comparison prompts held at 100% on both engines.</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#eb6834;"></span>Nov 2</div>
-          <div class="li"><span class="ld" style="background:#F5C2AE;"></span>Oct 27</div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <canvas id="openChart" role="img" aria-label="SMC mention rate on unbranded prompts. ChatGPT 16.7 on Nov 2 versus 22.2 on Oct 27. Gemini 16.7 versus 11.1.">SMC open-prompt mention rate by engine.</canvas>
-      </div>
-    </div>
-    <div class="actions-row">
-      <div class="action-box amber">
-        <div class="al">Tuition-free question: 0 of 6, both engines</div>
-        <div class="ab">"Are there tuition-free or full tuition scholarship bachelor degree options in upstate South Carolina." USC Upstate is named in all 6 responses and SCC in 5 of 6; SMC is named in none. SMC's full tuition scholarship page is cited in those answers and still never named, against Upstate cited 25 times on that prompt.</div>
-      </div>
-      <div class="action-box amber">
-        <div class="al">Affordable-online question: 0 of 6, both engines</div>
-        <div class="ab">"Affordable online bachelor degree programs in South Carolina that accept transfer credits and are private colleges." Neither tracked rival is named either &mdash; 0 of 6 for SMC, SCC and USC Upstate alike. The answer is built from other institutions entirely. SMC's transfer-credit page is cited in the week's answers and still appears in none of these &mdash; a page that gets read and is not recommended.</div>
-      </div>
-      <div class="action-box green">
-        <div class="al">First-generation question carries the open tier</div>
-        <div class="ab">4 of 6 across both engines, with SMC cited 3 of 3 on ChatGPT. It is the only unbranded prompt with a reliable win, and it is also the one where our content is written as an answer rather than as a policy.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== Head-to-head ===================== -->
-  <p class="section-label">SMC vs SCC vs USC Upstate &mdash; on every prompt <span class="src src-d4s">DataForSEO</span></p>
-  <div class="info-bar"><strong>USC Upstate and SCC are the only two competitors this report measures.</strong> Each cell is how many of 3 pooled samples named each school, per engine. SMC is tracked on every prompt, which is why it can score 3 of 3 on a prompt that names it and 0 of 3 on a prompt that names nobody.</div>
-  <div class="chart-block">
-    <div class="chart-card">
-      <div class="chart-head">
-        <div>
-          <div class="chart-title">Responses naming each school, of 66 pooled &mdash; SMC, SCC, USC Upstate</div>
-          <div class="chart-sub">33 responses per engine across the 11 tracked prompts. SMC appears in 51, USC Upstate in 18, SCC in 12.</div>
-        </div>
-        <div class="legend">
-          <div class="li"><span class="ld" style="background:#185FA5;"></span>SMC</div>
-          <div class="li"><span class="ld" style="background:#eda100;"></span>SCC</div>
-          <div class="li"><span class="ld" style="background:#eb6834;"></span>USC Upstate</div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <canvas id="compChart" role="img" aria-label="Responses naming each school. On ChatGPT: SMC 26, SCC 7, USC Upstate 9. On Gemini: SMC 26, SCC 5, USC Upstate 9.">SMC leads both engines; USC Upstate second on both.</canvas>
-      </div>
-    </div>
-    <div class="table-card attached" style="border-radius:0;border-top:none;">
-      <div class="table-scroll">
-      <table>
-        <thead>
-          <tr><th>Engine</th><th class="num">SMC named</th><th class="num">SCC named</th><th class="num">USC Upstate named</th><th class="num">SMC as % of nearest rival</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>ChatGPT</td><td class="num pct-high">26 of 33</td><td class="num">7 of 33</td><td class="num">9 of 33</td><td class="num pct-high">289% of Upstate</td></tr>
-          <tr><td>Gemini</td><td class="num pct-high">26 of 33</td><td class="num">5 of 33</td><td class="num">9 of 33</td><td class="num pct-high">289% of Upstate</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <div class="table-foot">Rates, not rankings: 26 of 33 is 78.8% on both engines. Blended across both engines SMC is named in 51 of 66 responses, USC Upstate 18, SCC 12.</div>
-    </div>
-    <div class="actions-row">
-      <div class="action-box green">
-        <div class="al">SMC wins both engines by nearly 3 to 1</div>
-        <div class="ab">26 of 33 responses on each engine, against 9 for USC Upstate and 7 or 5 for SCC. The gap is identical on both engines, which is unusual &mdash; normally one engine lags. Here neither does.</div>
-      </div>
-      <div class="action-box amber">
-        <div class="al">USC Upstate, not SCC, is the real rival</div>
-        <div class="ab">Upstate is named in 18 responses against SCC's 12, and it is the one that appears when SMC does not. SCC's 12 mentions lean on the affordable-online prompt; Upstate's 18 spread across tuition-free, transfer and online in both engines.</div>
-      </div>
-    </div>
-    <div class="table-card">
-      <div class="table-scroll">
-      <table>
-        <thead>
-          <tr><th>Prompt</th><th>Tier</th><th class="num">ChatGPT<br>SMC / SCC / Upstate</th><th class="num">Gemini<br>SMC / SCC / Upstate</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>SMC full tuition scholarship, how it works</td><td>Branded</td><td class="num">3 / 0 / 0</td><td class="num">3 / 0 / 0</td></tr>
-          <tr><td>SMC BAMS program details</td><td>Branded</td><td class="num">3 / 0 / 0</td><td class="num">3 / 0 / 0</td></tr>
-          <tr><td>SMC online bachelor programs and cost</td><td>Branded</td><td class="num">3 / 1 / 0</td><td class="num">3 / 0 / 0</td></tr>
-          <tr><td>SMC transfer credits, how they work</td><td>Branded</td><td class="num">3 / 0 / 0</td><td class="num">3 / 0 / 0</td></tr>
-          <tr><td>SMC vs SCC, transfer-friendly bachelor's</td><td>Comparison</td><td class="num">3 / 3 / 3</td><td class="num">3 / 3 / 3</td></tr>
-          <tr><td>SMC vs USC Upstate, online programs and cost</td><td>Comparison</td><td class="num">3 / 0 / 3</td><td class="num">3 / 0 / 3</td></tr>
-          <tr><td>SMC vs Wofford, first-generation and transfer <span class="pct-low">(prompt check only)</span></td><td>Comparison</td><td class="num">3 / 0 / 0</td><td class="num">3 / 0 / 0</td></tr>
-          <tr><td>SMC vs Converse, affordable bachelor's <span class="pct-low">(prompt check only)</span></td><td>Comparison</td><td class="num">3 / 0 / 0</td><td class="num">3 / 0 / 0</td></tr>
-          <tr class="highlight"><td>Tuition-free bachelor's options in upstate SC</td><td>Open</td><td class="num pct-zero">0 / 3 / 3</td><td class="num pct-zero">0 / 2 / 3</td></tr>
-          <tr class="highlight"><td>Affordable online transfer-friendly bachelor's in SC</td><td>Open</td><td class="num pct-zero">0 / 0 / 0</td><td class="num pct-zero">0 / 0 / 0</td></tr>
-          <tr><td>Best affordable private colleges near Spartanburg, first-gen</td><td>Open</td><td class="num">2 / 0 / 0</td><td class="num">2 / 0 / 0</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <div class="table-foot">Each cell is named in N of 3 pooled samples. On the SMC-vs-SCC comparison both rivals are named in all 6 responses and SMC is still named in all 6 &mdash; appearing together, not instead of each other.</div>
-    </div>
-    <div class="actions-row" style="margin-bottom:1.5rem;">
-      <div class="action-box amber">
-        <div class="al">The tuition-free prompt is a straight head-to-head loss</div>
-        <div class="ab">USC Upstate is named in all 6 responses and SCC in 5 of 6. SMC is named in none. Both of our two tracked rivals are in the answer and we are not &mdash; this is the single most actionable row in the report, and it is the full-tuition scholarship question.</div>
-      </div>
-      <div class="action-box amber">
-        <div class="al">The affordable-online prompt has no winner yet</div>
-        <div class="ab">Zero of 6 for all three schools. Neither rival has claimed it, so this is not a gap we lost &mdash; it is an unclaimed answer that either we or Upstate will take. First school to publish a list of transfer-friendly online bachelor's programs with credit counts and cost wins it outright.</div>
-      </div>
-      <div class="action-box green">
-        <div class="al">On the head-to-head comparisons we never lose</div>
-        <div class="ab">SMC is named in all 24 comparison responses across both engines, including every SMC-vs-SCC and SMC-vs-Upstate sample. When a student asks the model to compare, SMC is in the answer 100% of the time.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== Engines cite ===================== -->
-  <p class="section-label">Who the engines cite <span class="src src-d4s">DataForSEO</span></p>
-  <div class="table-card attached">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>Engine</th><th class="num">smcsc.edu</th><th class="num">sccsc.edu</th><th class="num">uscupstate.edu</th><th class="num">smc.edu (Santa Monica)</th><th class="num">Total citations</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>ChatGPT</td><td class="num pct-high">265</td><td class="num">60</td><td class="num">78</td><td class="num">0</td><td class="num">1,058</td></tr>
-        <tr><td>Gemini</td><td class="num pct-high">193</td><td class="num">23</td><td class="num">29</td><td class="num">0</td><td class="num">424</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">All subdomains included, matched exact-or-subdomain so smcsc.edu can never absorb a one-character neighbour or be absorbed by one. SMC's 458 = smcsc.edu 326 + makebigmoves 40 + connect 25 + library 35 + online 32; USC Upstate's 107 = uscupstate.edu 67 + online.uscupstate.edu 32 + catalog 8. Counts are citation instances across 33 responses per engine, so one answer citing six SMC pages counts six. Santa Monica College (smc.edu) took zero citations this run, down from 12 to 13 per engine in October.</div>
-  </div>
-  <div class="table-card">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>SMC page being cited</th><th class="num">Citations</th><th>Read</th></tr>
-      </thead>
-      <tbody>
-        <tr class="highlight"><td>Homepage <code>/</code></td><td class="num">34</td><td>Cited, but it never argues a program</td></tr>
-        <tr class="highlight"><td>Academic catalog 2024&ndash;25 PDF &mdash; four separate URLs</td><td class="num">51</td><td>Best-performing document on the site. One PDF served from four paths, two of them carrying <code>?utm_source=chatgpt.com</code></td></tr>
-        <tr><td>Academic catalog 2023&ndash;24 PDF</td><td class="num">8</td><td>Prior-year catalog still retrieved for program detail</td></tr>
-        <tr><td>Academic catalog 2022&ndash;23 PDF</td><td class="num">10</td><td>Outdated tuition and requirements still retrievable</td></tr>
-        <tr><td><code>/transfer-credit-information/</code></td><td class="num">8</td><td>Named in zero open answers. Highest-value rewrite on the site</td></tr>
-        <tr><td><code>/admissions/financial-aid/full-tuition-scholarship/</code></td><td class="num">7</td><td>Cited on the tuition-free prompt and still named zero times</td></tr>
-        <tr><td><code>/on-campus</code>, <code>/about/</code>, <code>/portal/enrollment-day</code></td><td class="num">25</td><td>An enrollment-day portal answered as an admissions question is an odd retrieval result worth a look</td></tr>
-        <tr><td><code>/academics/degrees-programs/</code>, <code>/onlinestudents</code>, tuition &amp; fees</td><td class="num">21</td><td>Working, and thinner than the volume of program questions should produce</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">Page-level counts across the 66 responses (458 SMC citation instances, 199 from the online program pages tracked separately last week). Duplicate catalog PDFs are the clearest technical fix on the page: the 2024&ndash;25 edition alone accounts for 51 citations across four URLs, and 2022&ndash;23 still resolves 10 times a week quoting last-cycle tuition.</div>
-  </div>
-  <div class="actions-row" style="margin-bottom:1.5rem;">
-    <div class="action-box green">
-      <div class="al">SMC owns 31% of all citations on our prompts</div>
-      <div class="ab">458 of 1,482 citation instances are smcsc.edu or its subdomains, against 83 for SCC and 107 for USC Upstate &mdash; better than 4 to 1 on prompts that name us. That is the opposite of the market-wide picture further down, and both are true.</div>
-    </div>
-    <div class="action-box amber">
-      <div class="al">Retire the duplicate and stale catalog PDFs</div>
-      <div class="ab">Serve one canonical 2024&ndash;25 catalog URL, 301 the duplicates to it, and put a superseded notice on the 2022&ndash;23 PDF linking to the current one. Outdated catalogs are still retrieved 18 times a week (2022&ndash;23 and 2023&ndash;24) for tuition and program questions.</div>
-    </div>
-  </div>
-
-  <!-- ===================== Market-wide (SE Ranking) ===================== -->
-  <p class="section-label">Market-wide AI search footprint <span class="src src-ser">SE Ranking</span></p>
-  <div class="table-card attached">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>Engine</th><th class="num">SMC brand</th><th class="num">SCC brand</th><th class="num">USC Upstate brand</th><th class="num">smcsc.edu links</th><th class="num">sccsc.edu links</th><th class="num">uscupstate.edu links</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Google AI Overviews</td><td class="num pct-mid">82</td><td class="num">1,583</td><td class="num">502</td><td class="num pct-mid">72</td><td class="num">3,098</td><td class="num">596</td></tr>
-        <tr><td>Google AI Mode</td><td class="num pct-mid">17</td><td class="num">578</td><td class="num">154</td><td class="num pct-mid">6</td><td class="num">1,208</td><td class="num">256</td></tr>
-        <tr><td>ChatGPT</td><td class="num pct-high">16</td><td class="num">17</td><td class="num">12</td><td class="num">3</td><td class="num">15</td><td class="num">30</td></tr>
-        <tr><td>Gemini</td><td class="num pct-zero">0</td><td class="num">11</td><td class="num">20</td><td class="num pct-zero">0</td><td class="num">12</td><td class="num">9</td></tr>
-        <tr><td>Perplexity</td><td class="num pct-zero">0</td><td class="num">1</td><td class="num pct-zero">0</td><td class="num">2</td><td class="num">306</td><td class="num">9</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">Snapshot Nov 2, 2026. Brand = AI answers in SE Ranking's keyword database that name the school; links = answers that link to its domain. Share of voice on the tracked pair: SCC 12.20%, USC Upstate 3.04%, SMC 0.41% &mdash; SCC holds roughly 30 times SMC's share market-wide. Google AI Overviews and ChatGPT are unchanged against the previous snapshot; AI Mode eased 465 to 453 (2.58%) and link presence held at 6. Every figure here moved by fewer than 40 brand mentions against the previous snapshot, which is inside SE Ranking's own revision range rather than a real week.</div>
-  </div>
-  <div class="actions-row" style="margin-bottom:1.5rem;">
-    <div class="action-box green">
-      <div class="al">ChatGPT is at parity market-wide, and only there</div>
-      <div class="ab">SMC is named in 16 ChatGPT answers against SCC's 17 and USC Upstate's 12 &mdash; 94% of SCC's presence. The same company holds 5% of SCC on AI Overviews and 3% on AI Mode. Conversational engines are already won; the Google surfaces are where the volume is and where we are absent.</div>
-    </div>
-    <div class="action-box amber">
-      <div class="al">Gemini reads zero market-wide</div>
-      <div class="ab">0 brand mentions and 0 links across SE Ranking's whole keyword database, against USC Upstate's 20. This sits oddly next to the 75.8% Gemini mention rate on our own prompts, and the difference is the prompt set: ours name Spartanburg, theirs do not. Worth one month of watching before treating it as a trend.</div>
-    </div>
-    <div class="action-box blue">
-      <div class="al">Three of five engines are flat week over week</div>
-      <div class="ab">The only real move is AI Mode's 12 brand mentions, which is within the noise of a database this size. SE Ranking is the slowest-moving of the four sources here; report movement from it monthly, not weekly.</div>
-    </div>
-  </div>
-
-  <!-- ===================== Search Console ===================== -->
-  <p class="section-label">Organic search &mdash; Google Search Console <span class="src src-ser">GSC</span></p>
-  <div class="table-card">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>Metric</th><th class="num">Oct 26 &ndash; Nov 1</th><th class="num">Oct 19 &ndash; 25</th><th class="num">Change</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Organic sessions</td><td class="num">1,918</td><td class="num">1,991</td><td class="num"><span class="chg-flat">&#9660; 3.7%</span></td></tr>
-        <tr><td>Average engagement time</td><td class="num">3m 25s</td><td class="num">&mdash;</td><td class="num"><span class="chg-flat">Longest of any channel</span></td></tr>
-        <tr><td>Key events</td><td class="num pct-high">291</td><td class="num">&mdash;</td><td class="num"><span class="chg-flat">15.2% of sessions</span></td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">GA4 session-based traffic acquisition, Mon&ndash;Sun, US Eastern. Organic holds more engaged time than any other channel in the report, so a 3.7% session dip is not a quality signal.</div>
-  </div>
-
-  <!-- ===================== GA4 channels ===================== -->
-  <p class="section-label">Traffic by channel &mdash; week of Oct 26 <span class="src src-ga4">GA4</span></p>
-  <div class="table-card attached">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>Session channel</th><th class="num">Sessions</th><th class="num">Users</th><th class="num">Key events</th><th class="num">Engagement / session</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Direct</td><td class="num">8,614</td><td class="num">8,522</td><td class="num">156</td><td class="num pct-low">29s</td></tr>
-        <tr><td>Organic Search</td><td class="num">1,918</td><td class="num">1,238</td><td class="num pct-high">291</td><td class="num">3m 25s</td></tr>
-        <tr><td>Cross-network</td><td class="num">1,624</td><td class="num">1,260</td><td class="num pct-high">433</td><td class="num">3m 22s</td></tr>
-        <tr><td>Paid Social</td><td class="num">1,319</td><td class="num">1,286</td><td class="num pct-zero">0</td><td class="num pct-zero">1s</td></tr>
-        <tr><td>Paid Search</td><td class="num">899</td><td class="num">698</td><td class="num">97</td><td class="num">2m 26s</td></tr>
-        <tr><td>Referral</td><td class="num">768</td><td class="num">437</td><td class="num pct-high">313</td><td class="num">5m 50s</td></tr>
-        <tr><td>Email</td><td class="num">257</td><td class="num">178</td><td class="num">19</td><td class="num">2m 24s</td></tr>
-        <tr><td>Unassigned</td><td class="num">169</td><td class="num">169</td><td class="num pct-zero">0</td><td class="num pct-low">8s</td></tr>
-        <tr><td>AI Assistant</td><td class="num">6</td><td class="num">5</td><td class="num pct-zero">0</td><td class="num">3m 02s</td></tr>
-        <tr><td>Display</td><td class="num">57</td><td class="num">57</td><td class="num">5</td><td class="num pct-low">32s</td></tr>
-        <tr><td>Organic Social</td><td class="num">74</td><td class="num">66</td><td class="num">8</td><td class="num">2m 17s</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">GA4 traffic acquisition, session-based, Oct 26 &ndash; Nov 1, 2026. Channels under 50 sessions omitted. Direct was 12,328 sessions the prior week and 8,614 this week, a drop of 3,714 that accounts for most of the site-wide decline and matches the proxy-crawler pattern previously identified from Singapore and other data-center ranges.</div>
-  </div>
-
-  <div class="table-card">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>First-user channel</th><th class="num">Users</th><th class="num">Avg engagement / user</th><th class="num">Key events</th><th class="num">User key event rate</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Direct</td><td class="num">8,389</td><td class="num pct-low">14s</td><td class="num">371</td><td class="num pct-low">4.4%</td></tr>
-        <tr><td>Paid Social</td><td class="num">1,285</td><td class="num pct-zero">0s</td><td class="num pct-zero">1</td><td class="num pct-zero">0.1%</td></tr>
-        <tr><td>Cross-network</td><td class="num">971</td><td class="num">2m 43s</td><td class="num pct-high">423</td><td class="num pct-high">43.6%</td></tr>
-        <tr><td>Organic Search</td><td class="num">671</td><td class="num">3m 05s</td><td class="num pct-high">303</td><td class="num pct-high">45.2%</td></tr>
-        <tr><td>Paid Search</td><td class="num">538</td><td class="num">1m 11s</td><td class="num">92</td><td class="num">17.1%</td></tr>
-        <tr><td>Referral</td><td class="num">193</td><td class="num">1m 38s</td><td class="num pct-high">100</td><td class="num pct-high">51.8%</td></tr>
-        <tr><td>Email</td><td class="num">146</td><td class="num">0m 47s</td><td class="num">20</td><td class="num">13.7%</td></tr>
-        <tr><td>AI Assistant</td><td class="num">5</td><td class="num">2m 21s</td><td class="num pct-zero">0</td><td class="num pct-zero">0.0%</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">GA4 user acquisition, first-user primary channel, Oct 26 &ndash; Nov 1, 2026. 12,385 new users total. Paid Social at 10.4% of new users and 0.1% key event rate is the same pattern as the last three periods.</div>
-  </div>
-  <div class="actions-row" style="margin-bottom:1.5rem;">
-    <div class="action-box green">
-      <div class="al">Referral is the highest-converting channel</div>
-      <div class="ab">193 new users, 100 key events, a 51.8% rate, and 5m 50s of engagement per session. Whatever is linking in is sending qualified people; worth identifying the top referral hosts before assuming this is passive.</div>
-    </div>
-    <div class="action-box amber">
-      <div class="al">Paid Social: 1 key event from 1,285 new users</div>
-      <div class="ab">Engagement under one second per user for the fourth straight period. This is either a placements problem or a landing-page tag problem, and at 10% of new-user volume it deserves a resolution before the next budget cycle rather than another week of monitoring.</div>
-    </div>
-    <div class="action-box blue">
-      <div class="al">Direct fell 30% and that is probably good news</div>
-      <div class="ab">12,328 to 8,614 sessions, against 14 seconds of engagement per user. Real direct traffic converted at 4.4%. A drop concentrated in near-zero-engagement Direct sessions is more likely a crawler set going quiet than an audience leaving.</div>
-    </div>
-  </div>
-
-  <!-- ===================== AI referral ===================== -->
-  <p class="section-label">AI referral traffic <span class="src src-visby">Visby.ai</span></p>
-  <div class="traffic-grid">
-    <div class="card">
-      <div class="wow-engine">ChatGPT views</div>
-      <div class="wow-val">48</div>
-      <div class="wup">&#9650; 45% vs prior week (33)</div>
-    </div>
-    <div class="card">
-      <div class="wow-engine">Referrals into the application</div>
-      <div class="wow-val">17</div>
-      <div class="wsub">connect.smcsc.edu login and status pages, 35% of views</div>
-    </div>
-    <div class="card">
-      <div class="wow-engine">Gemini, Claude, Perplexity, Copilot</div>
-      <div class="wow-val">0</div>
-      <div class="wflat">No visits recorded, any period</div>
-    </div>
-    <div class="card">
-      <div class="wow-engine">GA4 AI Assistant sessions</div>
-      <div class="wow-val">6</div>
-      <div class="wsub">Oct 26 &ndash; Nov 1, from 5 users</div>
-    </div>
-  </div>
-  <div class="actions-row standalone" style="margin-bottom:1.5rem;">
-    <div class="action-box green">
-      <div class="al">ChatGPT referrals nearly doubled, and they land in the funnel</div>
-      <div class="ab">33 to 48 views week over week, and 17 of the 48 landed on connect.smcsc.edu application-login and status pages &mdash; the traffic that actually matters. Last week only 5 did, and most of those views were homepage and residence-hall pages. The same view volume, a very different audience.</div>
-    </div>
-    <div class="action-box amber">
-      <div class="al">GA4 undercounts this by roughly 8 to 1</div>
-      <div class="ab">Visby reads 48 ChatGPT views; GA4's AI Assistant channel reads 6 sessions for the same week, and 50 over the whole of October. GA4 only credits the channel when the browser passes a referrer, so treat GA4 as a floor. Report Visby's number to anyone asking about AI traffic volume and name the source.</div>
-    </div>
-  </div>
-
-  <!-- ===================== Paid support ===================== -->
-  <p class="section-label">Paid search support &mdash; the prompts we cannot win organic <span class="src src-d4s">Google Ads</span></p>
-  <div class="table-card">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>Budget bucket</th><th class="num">Spend</th><th class="num">Conversions</th><th class="num">Cost / conv.</th><th class="num">Share of spend</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Online</td><td class="num">$1,390.19</td><td class="num">33.7</td><td class="num pct-mid">$41.25</td><td class="num">44.2%</td></tr>
-        <tr><td>On Campus</td><td class="num">$1,167.10</td><td class="num">41.3</td><td class="num pct-high">$28.26</td><td class="num">37.1%</td></tr>
-        <tr><td>SAM (all <code>*_grant</code> + BA General Studies)</td><td class="num">$587.66</td><td class="num">131.3</td><td class="num pct-high">$4.48</td><td class="num">18.7%</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">Google Ads API, Oct 26 &ndash; Nov 1, 2026, account 715-790-7494. Total $3,144.95, 2,630 clicks, 206.3 conversions, up 11.8% on the prior week's $2,812.72. Conversion figures are the account's own Google Ads conversion actions, which are known to undercount Slate applications on the On Campus campaigns.</div>
-  </div>
-  <div class="actions-row standalone" style="margin-bottom:1.5rem;">
-    <div class="action-box amber">
-      <div class="al">The two prompts we lose organically are both Paid-search shaped</div>
-      <div class="ab">"Tuition-free bachelor's in upstate SC" and "affordable online transfer-friendly bachelor's" are exactly what the Online and SAM buckets already buy. Until the pages are rewritten, that spend is the only thing standing between SMC and a zero on both questions.</div>
-    </div>
-    <div class="action-box blue">
-      <div class="al">Online is the most expensive conversion in the account</div>
-      <div class="ab">$41.25 per conversion against $28.26 for On Campus and $4.48 for SAM. Same caveat as always applies &mdash; Online conversions are cleaner because SAM's grant campaigns generate high-intent form fills, while On Campus conversions are undercounted at the Slate handoff.</div>
-    </div>
-  </div>
-
-  <!-- ===================== Visby ===================== -->
-  <p class="section-label">Technical scores <span class="src src-visby">Visby.ai</span></p>
-  <div class="rings">
-    <div class="card score-ring-wrap"><div class="score-ring"><canvas id="r1" width="80" height="80"></canvas><div class="score-num score-green">88</div></div><div class="score-lbl">SEO &middot; 9 tasks</div></div>
-    <div class="card score-ring-wrap"><div class="score-ring"><canvas id="r2" width="80" height="80"></canvas><div class="score-num score-amber">75</div></div><div class="score-lbl">GEO &middot; 9 tasks</div></div>
-    <div class="card score-ring-wrap"><div class="score-ring"><canvas id="r3" width="80" height="80"></canvas><div class="score-num score-red">49</div></div><div class="score-lbl">Page Speed &middot; 7 tasks</div></div>
-    <div class="card score-ring-wrap"><div class="score-ring"><canvas id="r4" width="80" height="80"></canvas><div class="score-num score-amber">65</div></div><div class="score-lbl">Reviews &middot; 4 tasks</div></div>
-  </div>
-  <div class="table-card">
-    <div class="table-foot">All four scores and task counts unchanged since the last check on Oct 23, so these are the same readings restated, not a new measurement. Page Speed at 49 remains the floor and is the one score that has never moved.</div>
-  </div>
-
-  <p class="section-label">Citation content gap <span class="src src-visby">Visby.ai</span></p>
-  <div class="table-card">
-    <div class="table-scroll">
-    <table>
-      <thead>
-        <tr><th>Largest gap source</th><th class="num">Gap count</th><th>What it means for SMC</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>SCC online and transfer-path pages</td><td class="num">5</td><td>Cited where SMC is absent on online-bachelor answers. Same gap DataForSEO found independently this week</td></tr>
-        <tr><td>Outreach opportunities (no competitor cited)</td><td class="num pct-mid">55</td><td>Answers where no school is winning yet. These are the cheapest targets</td></tr>
-        <tr><td>Total gap opportunities</td><td class="num">60</td><td>67.8% of the analysed set</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="table-foot">Visby citation content gap, project smcsc.edu, analysis dated Jun 21, 2026 and not re-run since. Treat the counts as a standing backlog rather than this week's news, and check <code>citedDomain</code> on any gap before acting: several historical gaps pointed at domains outside the SMC market.</div>
-  </div>
-
-  <!-- ===================== Priorities ===================== -->
-  <p class="section-label">Priorities this week</p>
-  <div class="actions-row standalone">
-    <div class="action-box amber">
-      <div class="al">Fix &mdash; the Full Tuition Scholarship page</div>
-      <div class="ab">Answer the question the prompt asks: who qualifies, any income threshold, and one sentence that reads "bachelor's degree, no tuition." The models need a liftable claim. On that prompt USC Upstate is named in all 6 responses and SCC in 5 of 6; the page is cited and SMC is never named.</div>
-    </div>
-    <div class="action-box amber">
-      <div class="al">Fix &mdash; the transfer-credit page opening</div>
-      <div class="ab">It is cited 28 times a week and named in zero open answers. Lead with "affordable online bachelor's degree, transfer up to X credits" in the first paragraph rather than describing policy. Same content, answer-shaped.</div>
-    </div>
-    <div class="action-box green">
-      <div class="al">Keep &mdash; branded and comparison content</div>
-      <div class="ab">48 of 48 responses with citation attached on both engines. Whatever the site is doing on branded and head-to-head prompts is working; the work this cycle belongs entirely to the open tier.</div>
-    </div>
-    <div class="action-box blue">
-      <div class="al">Fix &mdash; duplicate and outdated catalogs</div>
-      <div class="ab">One canonical 2024&ndash;25 catalog URL, 301 the other three. Superseded notice on both 2022&ndash;23 PDFs. 10 citations a week still resolve to the 2022&ndash;23 edition and 18 to out-of-date catalogs overall, on a site whose 2024&ndash;25 PDF is its single best-cited document.</div>
-    </div>
-    <div class="action-box purple">
-      <div class="al">Ask &mdash; what Moz's tracked prompt set actually is</div>
-      <div class="ab">Moz produces one number per engine that none of our other tools produce, so it is earning its place. But we cannot audit its prompt list from the dashboard, and its AI data arrives by screenshot while its own API covers links, keywords and Brand Authority only. Worth asking whether Moz exposes the tracked prompts anywhere exportable before renewal, because that is the only thing standing between us and automating the whole section.</div>
-    </div>
-  </div>
+<section>
+  <p class="section-label">Who else the AI answers name</p>
+  <div class="table-card"><div class="table-scroll">
+  <table>
+    <thead><tr><th>Competitor</th><th>Appears in</th><th>Share of all answers</th>
+    <th>Named when SMC is not</th><th>Share of SMC's misses</th></tr></thead>
+    <tbody><tr><td>Spartanburg Community College</td><td>98 of 222</td>
+          <td>44.1%</td>
+          <td><strong>53</strong> of 109</td>
+          <td><strong>48.6%</strong></td></tr><tr><td>USC Upstate</td><td>62 of 222</td>
+          <td>27.9%</td>
+          <td><strong>20</strong> of 109</td>
+          <td><strong>18.3%</strong></td></tr></tbody>
+  </table>
+  </div></div>
+  <p class="section-note">Across 222 answers from 3 engines.
+  Two columns matter here: how often a competitor appears at all, and how often it appears on the
+  109 answers where SMC is missing entirely &mdash; that second number is the real
+  lost-ground figure. USC Upstate and Spartanburg Community College only, per the current
+  competitive set.</p>
+</section>
 
 <footer>
-  SMC Digital Marketing &middot; AI Intelligence Report &middot; Sources: Moz Pro + SE Ranking + DataForSEO + Visby.ai + GA4 + Google Ads &middot; Week of Nov 2, 2026 &middot; Moz engines dated Nov 1, Perplexity Oct 4 &middot; smc-marketing.github.io/smc-ai-intelligence
+  SMC Digital Marketing &middot; AI Intelligence Report &middot; Week of Nov 9, 2026
+  &middot; Source: Moz AI Visibility, exported 2026-11-09
+  &middot; 3 engines, 74 questions, 222 answers
+  &middot; smc-marketing.github.io/smc-ai-intelligence
 </footer>
 </main>
-
 <script>
-function ring(id, score, color) {
-  const c = document.getElementById(id); if (!c) return;
-  const ctx = c.getContext('2d'); const cx = 40, cy = 40, r = 32, lw = 7;
-  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.strokeStyle = '#E8E6DF'; ctx.lineWidth = lw; ctx.stroke();
-  ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + (score / 100) * Math.PI * 2);
-  ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.stroke();
-}
-ring('r1', 88, '#1baf7a'); ring('r2', 75, '#eda100'); ring('r3', 49, '#D85A30'); ring('r4', 65, '#eda100');
+(function(){
+  const C = {"engines": ["ChatGPT", "Gemini", "Google AI Mode"], "mentions_now": [37, 44, 32], "mentions_prev": [36, 44, 31], "cites": [213, 6, 201], "colors": ["#2F80ED", "#F2C94C", "#F2994A"], "miss_split": [14, 16], "comp_labels": ["Spartanburg Community College", "USC Upstate"], "comp_all": [98, 62], "comp_alone": [53, 20]};
+  Chart.defaults.font.family = "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = "#6B7280";
+  const grid = {color:"#E5E7EB", drawBorder:false};
 
-const gridColor = 'rgba(136,135,128,0.15)';
-const tick = { color: '#888780', font: { size: 11 } };
-const pctAxis = (max) => ({ min: 0, max, ticks: { ...tick, callback: v => v + '%' }, grid: { color: gridColor } });
-const cntAxis = (max) => ({ min: 0, max, ticks: { ...tick, stepSize: Math.ceil(max / 5) }, grid: { color: gridColor } });
-const xAxis = { ticks: tick, grid: { display: false } };
-const base = { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false },
-  tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y + (c.parsed.y % 1 === 0 && c.parsed.y > 100 ? '' : '') } } } };
-const pctBase = { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false },
-  tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y + '%' } } } };
+  // print the value on every bar — the team should not have to eyeball heights
+  const valueLabels = {
+    id:'valueLabels',
+    afterDatasetsDraw(chart){
+      const {ctx} = chart;
+      chart.data.datasets.forEach((ds, di) => {
+        const meta = chart.getDatasetMeta(di);
+        if (meta.hidden) return;
+        meta.data.forEach((bar, i) => {
+          const v = ds.data[i];
+          if (v === null || v === undefined) return;
+          ctx.save();
+          ctx.fillStyle = '#111827';
+          ctx.font = '600 11px -apple-system,BlinkMacSystemFont,sans-serif';
+          const horiz = chart.options.indexAxis === 'y';
+          ctx.textAlign = horiz ? 'left' : 'center';
+          ctx.textBaseline = horiz ? 'middle' : 'bottom';
+          if (horiz) ctx.fillText(v, bar.x + 6, bar.y);
+          else ctx.fillText(v, bar.x, bar.y - 4);
+          ctx.restore();
+        });
+      });
+    }
+  };
 
-new Chart(document.getElementById('trendChart'), {
-  type: 'bar',
-  data: { labels: ['ChatGPT', 'Gemini'],
-    datasets: [
-      { label: 'Nov 2', data: [78.8, 78.8], backgroundColor: '#185FA5', borderRadius: 4 },
-      { label: 'Oct 27', data: [81.8, 69.7], backgroundColor: '#8FB4DA', borderRadius: 4 }
-    ] },
-  options: { ...pctBase, scales: { y: pctAxis(100), x: xAxis } }
-});
+  Chart.register(valueLabels);
 
-new Chart(document.getElementById('openChart'), {
-  type: 'bar',
-  data: { labels: ['ChatGPT', 'Gemini'],
-    datasets: [
-      { label: 'Nov 2', data: [16.7, 16.7], backgroundColor: '#eb6834', borderRadius: 4 },
-      { label: 'Oct 27', data: [22.2, 11.1], backgroundColor: '#F5C2AE', borderRadius: 4 }
-    ] },
-  options: { ...pctBase, scales: { y: pctAxis(40), x: xAxis } }
-});
+  new Chart(document.getElementById('cMentions'), {
+    type:'bar',
+    data:{ labels:C.engines, datasets:[
+      {label:'This week', data:C.mentions_now, backgroundColor:C.colors, borderRadius:5, maxBarThickness:64},
+      {label:'Last week', data:C.mentions_prev, backgroundColor:'#E5E7EB', borderRadius:5, maxBarThickness:64}
+    ]},
+    options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{boxWidth:10,padding:12}}},
+      scales:{y:{beginAtZero:true, grid, ticks:{stepSize:10}}, x:{grid:{display:false}}}}
+  });
 
-new Chart(document.getElementById('compChart'), {
-  type: 'bar',
-  data: { labels: ['ChatGPT', 'Gemini'],
-    datasets: [
-      { label: 'SMC', data: [26, 26], backgroundColor: '#185FA5', borderRadius: 4 },
-      { label: 'SCC', data: [7, 5], backgroundColor: '#eda100', borderRadius: 4 },
-      { label: 'USC Upstate', data: [9, 9], backgroundColor: '#eb6834', borderRadius: 4 }
-    ] },
-  options: { responsive: true, maintainAspectRatio: false,
-    plugins: { legend: { display: false },
-      tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y + ' of 33 responses' } } },
-    scales: { y: { min: 0, max: 33, ticks: { ...tick, stepSize: 11 }, grid: { color: gridColor } }, x: xAxis } }
-});
+  new Chart(document.getElementById('cCites'), {
+    type:'bar',
+    data:{ labels:C.engines, datasets:[{label:'Links to smcsc.edu', data:C.cites,
+      backgroundColor:'#2F80ED', borderRadius:5, maxBarThickness:64}]},
+    options:{responsive:true, maintainAspectRatio:false, indexAxis:'y',
+      plugins:{legend:{display:false}},
+      scales:{x:{beginAtZero:true, grid}, y:{grid:{display:false}}}}
+  });
 
-new Chart(document.getElementById('mozChart'), {
-  type: 'bar',
-  data: { labels: ['Gemini', 'Google AI Mode', 'ChatGPT', 'Perplexity'],
-    datasets: [
-      { label: 'Nov 1', data: [59.5, 41.9, 48.6, null], backgroundColor: '#185FA5', borderRadius: 4 },
-      { label: 'Oct 26', data: [52.7, 47.3, 44.6, null], backgroundColor: '#8FB4DA', borderRadius: 4 },
-      { label: 'Oct 4 (Perplexity)', data: [null, null, null, 33.8], backgroundColor: '#D3D1C7', borderRadius: 4 }
-    ] },
-  options: { ...pctBase, scales: { y: pctAxis(70), x: xAxis } }
-});
+  new Chart(document.getElementById('cMiss'), {
+    type:'doughnut',
+    data:{ labels:['Ours to win ('+C.miss_split[0]+')','Competitor-branded ('+C.miss_split[1]+')'],
+      datasets:[{data:C.miss_split, backgroundColor:['#34A853','#E5E7EB'], borderWidth:0}]},
+    options:{responsive:true, maintainAspectRatio:false, cutout:'58%',
+      plugins:{valueLabels:false, legend:{position:'bottom',labels:{boxWidth:10,padding:14}}}}
+  });
 
-new Chart(document.getElementById('citeChart'), {
-  type: 'bar',
-  data: { labels: ['ChatGPT', 'Google AI Mode', 'Gemini'],
-    datasets: [
-      { label: 'All citations', data: [246, 177, 7], backgroundColor: '#8FB4DA', borderRadius: 4 },
-      { label: 'SMC-owned', data: [9, 19, 2], backgroundColor: '#185FA5', borderRadius: 4 }
-    ] },
-  options: { ...base, plugins: { legend: { display: false },
-      tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y } } },
-    scales: { y: { min: 0, max: 260, ticks: { ...tick, stepSize: 65 }, grid: { color: gridColor } }, x: xAxis } }
-});
-
-
-new Chart(document.getElementById('terrChart'), {
-  type: 'bar',
-  data: { labels: ['Spartanburg bachelor’s + general', 'Associate-degree questions', 'Prompts naming SCC', 'Prompts naming Wofford'],
-    datasets: [ { label: 'Named in %', data: [63.8, 0, 0, 0],
-      backgroundColor: ['#185FA5', '#D3D1C7', '#D3D1C7', '#D3D1C7'], borderRadius: 4 } ] },
-  options: { ...pctBase, scales: { y: pctAxis(100), x: { ticks: { ...tick, maxRotation: 20, minRotation: 0 }, grid: { display: false } } } }
-});
-
+  new Chart(document.getElementById('cComp'), {
+    type:'bar',
+    data:{ labels:C.comp_labels, datasets:[
+      {label:'All answers', data:C.comp_all, backgroundColor:'#E5E7EB', borderRadius:5, maxBarThickness:52},
+      {label:'When SMC is absent', data:C.comp_alone, backgroundColor:'#F2994A', borderRadius:5, maxBarThickness:52}
+    ]},
+    options:{responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{position:'bottom',labels:{boxWidth:10,padding:12}}},
+      scales:{y:{beginAtZero:true, grid}, x:{grid:{display:false}}}}
+  });
+})();
 </script>
 </body>
 </html>
